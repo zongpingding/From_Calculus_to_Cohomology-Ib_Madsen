@@ -266,3 +266,178 @@ assertions which, when combined, make $\partial^*$ well-defined. Namely:
   \item If $f^{p+1}(a) = \dd^p_B(b)$, then $\dd^{p+1}_A(a) = 0$.
   \item If $g^p(b_1)  g^p(b) = c$ and $f^{p+1}(a_i) = \dd^p_B(b_i)$, then $[a_1]=[a_2] \in H^{p+1}(A^*)$.
 \end{enumerate}
+
+
+
+The first assertion follows, because $g^{p+1}\dd^p_B(b) = \dd^p_C(c) = 0$, and $\ker g^{p+1} = \im f^{p+1}$;
+(ii) uses the injectivity of $f^{p+2}$ and that $f^{p+2}\dd^{p+1}_A(a) = \dd^{p+1}_Bf^{p+1}(a) = \dd^{p+1}_B\dd^p_B(b) = 0$;
+(iii) follows since $b_1-b_2 = f^p(a)$ so that $\dd^p_B(b_1) - \dd^p_B(b_2) = \dd^p_Bf^p(a) = f^{p+1}\dd^p_A(a)$, 
+and therefore $(f^{p+1})^{-1}(\dd^p_B(b_1)) = (f^{p+1})^{-1} (\dd^p_B(b_2)) + \dd^p_A(a)$.
+
+\begin{example}\label{exampl:4-6}
+  Here is a short exact sequence of chain complexes (the dots indicate
+  that the chain groups are zero) with $\partial^*\neq 0$:
+
+\begin{center}
+  \begin{tikzcd}
+    & \vdots\dar & \vdots\dar             & \vdots\dar  &     \\
+  0\rar & 0 \rar\dar & \RR\dar{\id}\rar{\id}  & \RR\dar\rar &  0  \\
+  0\rar & \RR\rar{\id}\dar & \RR\rar\dar & 0\rar\dar & 0  \\
+    & \vdots  & \vdots & \vdots  & 
+\end{tikzcd}
+\end{center}
+
+One can easily verify that $\partial^*:\RR\to\RR$ is an isomorphism.
+\end{example}
+
+
+\begin{lemma}\label{lemma:4-7}
+  The sequence $H^p(B^*)\lr{g^*} H^p(C^*)\lr{\partial^*}H^{p+1}(A^*)$ is exact.
+\end{lemma}
+
+\begin{proof}
+  We have $\partial^*g^*([b]) = \partial^*g^p([b]) = [(f^{p+1})^{-1} (\dd_B(b))] = 0$. Conversely assume 
+  that $\partial^*([c]) = 0$. Choose $b\in B^p$ with $g^p(b) = c$ and $a\in A^p$, such that 
+  \begin{align*}
+    \dd^p_B(b) = f^{p+1}(\dd^p_Aa).
+  \end{align*}
+
+  Now we have $\dd^p_B(b - f^p(a)) = 0$ and $g^p(b-f^p(a)) = c$. Hence $g^*[b-f^p(a)] = [c]$.
+\end{proof}
+
+
+\begin{lemma}\label{lemma:4-8}
+  The sequence $H^p(C^*)\lr{\partial^*} H^{p+1}(A^*)\lr{f^*} H^{p+1}(B^*)$ is exact.
+\end{lemma}
+
+\begin{proof}
+  We have $f^*\partial^*([c]) = [\dd^p_B(b)] = 0$, where $g^p(b) = c$. Conversely assume that $f^*([a]) = 0$.
+i.e., $f^{p+1}(a) = \dd^p_B(b)$. Then $\dd^p_C(g^p(b)) = g^{p+1}f^{p+1}(a) = 0$, and $\partial^*[g^p(b)] = [a]$.
+\end{proof}
+
+We can sum up Lemmas \ref{lemma:4-4}, \ref{lemma:4-7} and \ref{lemma:4-8} in the important.
+
+
+\begin{theorem}[Long exact homology sequence]\label{theorem:4-9}
+Let $0\lr{}A^*\lr{f}B^*\lr{g}C^*\lr{}0$ be a short exact sequence of chain complexes. Then the sequence
+\begin{align*}
+  \cdots\lr{}H^p(A^*)\lr{f^*}H^p(B^*)\lr{g^*}H^p(C^*)\lr{\partial^*}H^{p+1}(A^*)\lr{f^*}H^{p+1}(B^*)\lr{} \cdots
+\end{align*}
+
+is exact.
+\end{theorem}
+
+
+\begin{definition}
+  Two chain maps $f, g:A^*\to B^*$ are said to be \Index{chain homotopic} if there exists a linear map
+$s:A^p\to B^{p-1}$ satisfying
+\begin{align*}
+  \dd_{B}s + s\dd_A = f - g: A^p\lr{}B^p
+\end{align*}
+
+for every $p$.
+\end{definition}
+
+In the form of a diagram, a chain homotopy is given by the slanted arrows.
+\begin{center}
+  \begin{tikzcd}
+    \cdots\rar & A^{p-1}\dar{f-g}\rar & A^p \dlar\dar{f-g}\rar & A^{p+1}\dlar\dar{f-g}\rar & A^{p+2}\dlar\dar\rar & \cdots \\
+    \cdots\rar & B^{p-1}\rar & B^p \rar & B^{p+1} \rar & B^{p+2} \rar & \cdots
+  \end{tikzcd}
+\end{center}
+
+
+The name \Index{chain homotopy} will be explained in Chapter 6.
+
+
+\begin{lemma}\label{lemma:4-11}
+  For two chain-homotopic chain maps $f,g:A^*\to B^*$ we have that
+  \begin{align*}
+    f^* = g^*: H^p(A^*)\lr{}H^p(B^*).
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  If $[a]\in H^p(A^*)$, then 
+  \begin{align*}
+    (f^* - g^*)[a] = [f^p(a) - g^p(a)] = [(\dd_B^{p-1}s(a) + s\dd^p_A(a)] 
+    = [\dd^{p-1}_Bs(a)] 
+    = 0.
+  \end{align*}
+\end{proof}
+
+
+\begin{remark}\label{remark:4-12}
+  In the proof of the Poincare lemma in Chapter 3 we constructed
+linear maps
+\begin{align*}
+  S^p: \Omega^p(U)\to\Omega^{p-1}(U)
+\end{align*}
+
+with $\dd^{p-1}S^p + S^{p+1}\dd^p = \id$ for $p>0$. Hence $\id=0$ on $H^p(U)$, and $H^p(U) = 0$
+when $p>0$.
+\end{remark}
+
+\begin{lemma}\label{lemma:4-13}
+  If $A^*$ and $B^*$ are chain complexes then 
+  \begin{align*}
+    H^p(A^*\otimes B^*) = H^p(A^*)\otimes H^p(B^*).
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  It is obvious that 
+  \begin{align*}
+    \ker(\dd^p_{A\otimes B}) & = \ker\dd^p_A\otimes \ker\dd^p_B \\
+    \im(\dd^{p-1}_{A\otimes B}) & = \im\dd^{p-1}_A\otimes \im\dd^{p-1}_B.
+  \end{align*}
+
+  and the lemma follows.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
