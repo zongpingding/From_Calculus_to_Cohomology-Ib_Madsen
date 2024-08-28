@@ -1,0 +1,328 @@
+\chapter{The Alternating Algebra}
+Let $V$ be a vector space over $\RR$. A map
+\begin{align*}
+  f: \underbrace{V\times V\times \cdots \times V}_{k\text{ times}} \to \RR
+\end{align*}
+
+is called $k$-linear (or multilinear), if $f$ is linear in each factor.
+
+
+\begin{definition}
+  A $k$-linear map $\omega: V^k\to\RR$ is said to be alternating if
+  $\omega(\xi_1, \cdots, \xi_k) = 0$ whenever $\xi_i=\xi_j$ for some pair $i\neq j$. The vector space
+  of alternating, $k$-linear maps is denoted by $\alt^k(V)$.
+\end{definition}
+
+
+We immediately note that $\alt^k(V) = 0$ if $k > \dim V$. Indeed, let $e_1, \cdots, e_n$ be a
+basis of $V$, and let $\omega\in\alt^k(V)$. Using multilinearity,
+\begin{align*}
+  \omega(\xi_{1},\ldots,\xi_{k})=\omega\Big(\sum\lambda_{i,1}e_{i},\ldots,\sum\lambda_{i,k}e_{i}\Big)=\sum\lambda_{J}\omega(e_{j_{1}},\ldots,e_{j_{k}})
+\end{align*}
+
+
+with $\lambda_J = \lambda_{j_1, 1}, \cdots, \lambda_{j_k, k}$. Since $k>n$, there must be at least one repetition
+among the elments $e_{j_1}, \cdots, e_{j_k}$. Hence $\omega(e_{j_1}, \cdots, e_{j_k}) = 0$.
+
+The symmetric group of permutations of the set $\{1, \cdots,k\}$ is denoted by $S(k)$.
+We remind the reader that any permutation can be written as a composition of
+transpositions. The transposition that interchanges $i$ and $j$ will be denoted by $(i, j)$.
+Furthemiore, and this fact will be used below, any permutation can be written as a
+composition of transpositions of the type $(i, i+1), (i, i+1)\circ(i+1, i+2)\circ(i, i+1) =
+  (i, i + 2)$ and so forth. The sign of a permutation:
+\begin{align}
+  \sign: S(k) \to \{\pm 1\}
+\end{align}
+
+
+is a homomorphism, $\sign(\sigma\circ\tau) = \sign(\sigma)\circ\sign(\tau)$, which maps every
+transposition to $-1$. Thus the sign of $\sigma\in S(k)$ is $-1$ precisely if $\sigma$ decomposes into a
+product consisting of an odd number of transpositions.
+
+\begin{lemma}
+  If $\omega\in\alt^k(V)$ and $\sigma\in S(k)$, then
+  \begin{align*}
+    \omega\big(\xi_{\sigma(1)},\ldots,\xi_{\sigma(k)}\big)=\mathrm{sign}(\sigma)\omega(\xi_{1},\ldots,\xi_{k}).
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  It is sufficient to prove the formula when $\sigma = (i, j)$. Let
+  \begin{align*}
+    \omega_{i,j}(\xi,\xi')=\omega(\xi_{1},\ldots,\xi,\ldots,\xi',\ldots,\xi_{k}),
+  \end{align*}
+
+  with $\xi$ and $\xi'$ eoccurring at positions $i$ and $j$ respectively. The remaining $\xi_p\in V$
+  are arbitrary but fixed vectors. From the definition it follows that $\omega_{i,j}\in\alt^2(V)$.
+  Hence $\omega_{i,j} (\xi_i + \xi_j, \xi_i + \xi_j) = 0$. Bilinearity yields that
+  $\omega_{i,j} (\xi_i + \xi_j) + \omega_{i,j} (\xi_j + \xi_i) = 0$
+\end{proof}
+
+
+\begin{example}
+  Let $V = \RR^k$ and $\xi_i = (\xi_{i1}, \cdots, \xi_{ik})$. The function $\omega(\xi_1, \cdots, \xi_k) = \det((\xi_{ij}))$
+  is alternating, by the calculation rules for determinants.
+\end{example}
+
+We want to define the exterior product
+\begin{align*}
+  \wedge: \alt^p(V)\times\alt^q(V) \to \alt^{p+q}(V).
+\end{align*}
+
+When $p=q=1$, it is given by $(\omega_1\wedge\omega_2) = \omega_1(\xi_1)\omega_2(\xi_2) - \omega_2(\xi_1)\omega_1(\xi_2)$.
+
+\begin{definition}
+  A $(p, q)$-shuffle $\sigma$ is a permutation of the set $\{1, \cdots, p + q\}$ satisfying
+  \begin{align*}
+    \sigma(1) < \cdots < \sigma(p) \quad\text{and}\quad \sigma(p + 1) < \cdots < \sigma(p + q).
+  \end{align*}
+
+  The set of all such permutations is denoted by $S(p, q)$. Since a $(p, q)$-shuffle is uniquely determined by the
+  set $\{\sigma(1),\cdots,\sigma(p)\}$, the cardinality of $S(p, q)$ is $\binom{p + q}{p}$.
+\end{definition}
+
+
+\begin{definition}[Exterior product]\label{def:2-5}
+  For $\omega_1\in\alt^p(V)$ and $\omega_2\in\alt^q(V)$, we defined
+  \begin{align*}
+    (\omega_1\wedge\omega_2) & (\xi_1,\ldots,\xi_{p+q})                                                             \\
+    =                        & \sum_{\sigma\in S(p,q)}\sign(\sigma)\omega_1(\xi_{\sigma(1)},\ldots,\xi_{\sigma(p)})
+    \cdot\omega_2(\xi_{\sigma(p+1)},\ldots,\xi_{\sigma(p+q)}).
+  \end{align*}
+
+  It is obvious that $\omega_1\wedge\omega_2$ is a $(p+q)$-linear map, but moreover.
+\end{definition}
+
+\begin{lemma}\label{lemma:2-2}
+  If $\omega_1\in\alt^p(V)$ and $\omega_2\alt^q(V)$ then $\omega_1\wedge\omega_2\in\alt^{p+q}(V)$.
+\end{lemma}
+
+\begin{proof}
+  We first show that $\omega_1\wedge\omega_2(\xi_1,, \xi_2, \cdots, \xi_{p+q}) = 0$ when $\xi_i = \xi_j$.
+  We let
+  \begin{enumerate}[label=(\roman*)]
+    \item $S_{12} = \{\sigma\in S(p, q) | \sigma(1) = 1, \sigma(p+1) = 2\}$
+    \item $S_{21} = \{\sigma\in S(p, q) | \sigma(1) = 2, \sigma(p+1) = 1\}$
+    \item $S_0 = S(p, q) - (S_{12} - S_{21})$
+  \end{enumerate}
+
+  If $\sigma\in S_0$ then either $\omega_1(\xi_{\sigma(1)}, \cdots, \xi_{\sigma(p)}) = 0$
+  or $\omega_2(\xi_{\sigma(p+1)}, \cdots, \xi_{\sigma(p+q)}) = 0$, since $\xi_P\sigma(1) = \xi_{\sigma(2)}$
+  or $\xi_{\sigma(p+1)} = \xi_{\sigma(p+2)}$. Left composition with  the transposition $\tau = (1, 2)$ is a bijecrtion
+  $S_{12}\to S_{21}$. We therefore have
+  \begin{align*}
+      & (\omega_{1}\wedge\omega_{2})(\xi_{1},\xi_{2},\ldots,\xi_{p+q})                                                                                             \\
+    = & \sum_{\sigma\in S_{12}}\sign(\sigma)\omega_1(\xi_{\sigma(1)},\ldots,\xi_{\sigma(p)})\omega_2(\xi_{\sigma(p+1)},\ldots,\xi_{\sigma(p+q)})                   \\
+    - & \sum_{\sigma\in S_{12}}\sign(\sigma)\omega_1(\xi_{r\sigma(1)},\ldots,\xi_{\tau\sigma(p)})\cdot\omega_2(\xi_{\tau\sigma(p+1)},\ldots\xi_{\tau\sigma(p+q)}).
+  \end{align*}
+
+  Since $\sigma(1) = 1$ and $\sigma(p+1) = 2$, while $\tau\sigma(1) = 2$ and $\tau\sigma(p+1) = 1$, we see that
+  $\tau\sigma(i) = \sigma(i)$ where $i\neq 1, p+1$. But $\xi_1 = \xi_2$ so the terms in the two sums cancel.
+  The case $\xi_i = \xi_{i+1}$ is similar. Now $\omega_1\wedge\omega_2$ is alternating according to Lemma \ref{lemma:2-7} below.
+\end{proof}
+
+\begin{lemma}\label{lemma:2-7}
+  A $k$-linear map $\omega$ is alternating if $\omega(\xi_1, \cdots, \xi_k) = 0$ for all $k$-tuples
+  with $\xi_i = \xi_{i+1}$ for some $1\le i\le k-1$.
+\end{lemma}
+
+
+\begin{proof}
+  $S(k)$ is generated by the transpositions $(i, i + 1)$, and by the argument
+  of Lemma \ref{lemma:2-2},
+  \begin{align*}
+    \omega(\xi_1, \cdots, \xi_i, \xi_{i+1}, \cdots, \xi_k)
+    = - \omega(\xi_1, \cdots, \xi_{i+1}, \xi_i, \cdots, \xi_k).
+  \end{align*}
+
+  Hence Lemma \ref{lemma:2-2} holds for all $\sigma\in S(k)$, and $\omega$ is alternating.
+\end{proof}
+
+It is clear from the definition that
+\begin{align*}
+  (\omega_{1}+\omega_{1}^{\prime})\wedge\omega_{2}
+  = \omega_{1}\wedge\omega_{2}+\omega_{1}^{\prime}\wedge w_{2}            \\
+  (\lambda\omega_{1})\wedge\omega_{2}
+  = \lambda(\omega_{1}\wedge\omega_{2})=\omega_{1}\wedge\lambda\omega_{2} \\
+  \omega_{1}\wedge\left(\omega_{2}+\omega_{2}^{\prime}\right)
+  = \omega_{1}\wedge\omega_{2}+\omega_{1}\wedge\omega_{2}^{\prime}
+\end{align*}
+
+for $\omega_1, \omega_1' \in\alt^p(V)$ and $\omega_2, \omega_2'\in\alt^q(V)$.
+
+
+\begin{lemma}\label{lemma:2-8}
+  If $\omega_1\in\alt^p(V)$ and $\omega_2\in\alt^q(V)$, then $\omega_1\wedge\omega_2 = (-1)^{pq}\omega_2\wedge\omega_1$.
+\end{lemma}
+
+
+\begin{proof}
+  Let $\tau\in S(p+q)$ be the element with
+  \begin{align*}
+    \begin{array}{cccc}
+      \tau(1)  = p+1 , & \tau(2)  = p+2, & \cdots, & \tau(q) = p+q. \\
+      \tau(q+1) = 1,   & \tau(q+2) = 2,  & \cdots, & \tau(p+q) = p.
+    \end{array}
+  \end{align*}
+
+  We have $\sign(\tau) = (-1)^{pq}$. Composition with $\tau$ defines bijiection
+  \begin{align*}
+    S(p, q) \lr{\cong} S(q, p), \quad \sigma\mapsto\tau\circ\sigma
+  \end{align*}
+
+  Note that
+  \begin{align*}
+    \omega_2(\xi_{\sigma\gamma(1)}, \cdots, \xi_{\sigma\gamma(q)})
+    & = \omega_2(\xi_{\tau\sigma(p+1)}, \cdots, \xi_{\tau\sigma(p+q)}). \\
+    \omega_1(\xi_{\sigma\gamma(q+1)}, \cdots, \xi_{\sigma\gamma(p+q)})
+    & = \omega_1(\xi_{\tau\sigma(1)}, \cdots, \xi_{\tau\sigma(p)}).
+  \end{align*}
+
+  Hence
+  \begin{align*}
+    & \omega_{2}\wedge\omega_{1}(\xi_{1},\ldots,\xi_{p+q})                                                         \\
+    & = \sum_{\sigma\in S(q,p)}\sign(\sigma)\omega_{2}\big(\xi_{\sigma(1)},\ldots,\xi_{\sigma(q)}\big)
+  \omega_{1}\big(\xi_{\sigma(q+1)},\ldots,\xi_{\sigma(p+q)}\big)                                                  \\
+    & = \sum_{\sigma\in S(p,q)}\sign(\sigma\tau)\omega_{2}\big(\xi_{\sigma\tau(1)},\ldots,\xi_{\sigma\tau(q)}\big)
+  \omega_{1}\big(\xi_{\sigma\tau(q+1)},\ldots,\xi_{\sigma\tau(p+q)}\big)                                          \\
+    & = (-1)^{pq}\sum_{\sigma\in S(p,q)}\sign(\sigma)\omega_{1}\big(\xi_{\sigma(1)},\ldots,\xi_{\sigma(p)}\big)
+  \omega_{2}\big(\xi_{\sigma(p+1)},\ldots,\xi_{\sigma(p+q)}\big)                                                  \\
+    & = (-1)^{pq}\omega_{1}\wedge\omega_{2}(\xi_{1},\ldots,\xi_{p+q}).
+  \end{align*}
+\end{proof}
+
+
+\begin{lemma}
+  If $\omega_1\in\alt^p(V)$ and $\omega_2\in\alt^q(V)$ and $\omega_3\in\alt^r(V)$, then
+  \begin{align*}
+    \omega_1\wedge(\omega_2\wedge\omega_3) = (\omega_1\wedge\omega_2)\wedge\omega_3.
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  Let $S(p, q, r)\subset S(p+q+r)$ consist of the permutations $\sigma$ with
+  \begin{align*}
+    \sigma(1) <     & \cdot < \sigma(p)      \\
+    \sigma(p+1) <   & \cdot < \sigma(p+q)    \\
+    \sigma(p+q+1) < & \cdot < \sigma(p+q+r).
+  \end{align*}
+
+  We will need the subset $S(\tilde{p}, q, r)$ and $S(p, q, \sim{r})$ of $S(p, q, r)$ given by
+  \begin{align*}
+  \sigma \in S(\tilde{p}, q, r) \Longleftrightarrow \sigma \text{ is the identity on }  & \{1, \cdots, p\} \text{ and } \sigma\in S(p, q, r) \\
+  \sigma \in S(p, q, \tilde{r}) \Longleftrightarrow \sigma \text{ is the identity on }  & \{p+q+1, \cdots, p+q+r\}                           \\
+                                                                                        & \text{ and } \sigma\in S(p, q, r)                  \\
+  \end{align*}
+
+  There are bijections
+  \begin{align*}
+    S(p, q, r) \times S(p, q, r)         & \lr{\cong} S(p, q, r); \quad (\sigma, \tau)\mapsto\sigma\circ\tau   \\
+    S(p, q, r) \times S(p, q, \tilde{r}) & \lr{\cong} S(p, q, r); \quad (\sigma, \tau)\mapsto\tau\circ\sigma.
+  \end{align*}
+
+  With these notations we have
+  \begin{align*}
+    & [\omega_1\wedge(\omega_2\wedge\omega_3)](\xi_1,\ldots,\xi_{p+q+r})                                                                              \\
+    & = \sum_{\sigma\in S(p,q+r)}\sign(\sigma)\omega_1(\xi_{\sigma(1)},\ldots,\xi_{\sigma(p)})
+    (\omega_2\wedge\omega_3)(\xi_{\sigma(p+1)},\ldots,\xi_{\sigma(p+q+r)})                                                                             \\
+    & = \sum_{\sigma\in S(p,q+r)}\sign(\sigma)\sum_{\sigma\in S(p,q,r)}\sign(\tau)\Big[\omega_1(\xi_{\sigma(1)},\ldots,\xi_{\sigma(p)})               \\
+    & \hspace*{2em} \omega_2(\xi_{\sigma\tau(p+1)},\ldots,\xi_{\sigma\tau(p+q)})\omega_3(\xi_{\sigma\tau(p+q+1)},\ldots,\xi_{\sigma\tau(p+q+r)})\Big] \\
+    & = \sum_{u\in S(p,q,r)}\Big[\sign(u)\omega_1(\xi_{u(1)},\ldots,\xi_{u(p)})\omega_2(\xi_{u(p+1)},\ldots,\xi_{u(p+q)})                             \\
+    & \hspace*{2em} \omega_3(\xi_{u(p+q+1)},\ldots,\xi_{u(p+q+r)})\Big]
+  \end{align*}
+
+  where the last equality follows from the first equation in \ref{eq:1-2}. Quite analogously one can calculate
+  $[(\omega_1\wedge\omega_2)\wedge\omega_3](\xi_1, \cdots, \xi_{p+q+r})$, employing the second equation in \ref{eq:1-2}.
+\end{proof}
+
+\begin{remark}
+In other textbook on alternating functions one can often see the definition
+\begin{align*}
+    & \omega_{1}\bar{\wedge}\omega_{2}(\xi_{1},\ldots,\xi_{p+q})\\
+  = & \frac{1}{p!q!}\sum_{\sigma\in S(p+q)}\sign(\sigma)
+      \omega_{1}(\xi_{\sigma(1)},\ldots,\xi_{\sigma(p)})
+      \omega_{2}(\xi_{\sigma(p+1)},\ldots,\xi_{\sigma(p+q)}).
+\end{align*}
+
+Note that in this formula $\{\sigma(1), \cdots,\sigma(p)\}$ and $\{\sigma(p + 1), \cdots, \sigma(p + q)\}$ are not
+ordered. There are exactly $S(p)\times S(q)$ ways to come from an ordered set to the arbitrary sequence above; 
+this causes the factor $\frac{1}{p!q!}$, so $\omega_1\bar{\wedge}\omega_2 = \omega_1\wedge\omega_2$.
+\end{remark}
+
+An $\RR$-algebra $A$ consists of a vector space over $\RR$ and a bilinear map $\mu:A\times A\to A$
+which is associative, $\mu(a, \mu(b,c)) = \mu(\mu(a, b), c)$ for every $a,b,c \in A$. The
+algebra is called \Index{unitary} if there exists a unit element for $\mu, \mu(1, a) = \mu( a, 1) = a$
+for all $a\in A$.
+
+\begin{definition}\;\par
+  \begin{enumerate}[label=(\roman*)]
+    \item A graded $\RR$-algebra $A_*$ is a sequence of vector spaces $A_k, k = 0,1, \cdots$,
+      and bilinear maps $\mu:A_k\times A_l\to A_{k+l}$ which are associative.
+    \item The algebra $A_*$ is called connected if there exists a unit element $1\in A_0$ and 
+      if $\epsilon:\RR\to A_0$, given by $\epsilon(r) = r\cdot 1$, is an isomorphism.
+    \item The algebra called (graded) commutative (or anti-commutative), if $\mu(a, b) = (-1)^{kl}\mu(b, a)$
+      for all $a\in A_k$ and $b\in A_l$.
+  \end{enumerate}
+\end{definition}
+
+
+The elements in $A_k$ are said to have degree $k$. The set $\alt^k(V)$ is a vector space
+over $\RR$ in the usual manner:
+\begin{align*}
+  (\omega_1+\omega_2)(\xi_1,\dots,\xi_k) & = \omega_1(\xi_1,\dots,\xi_k)+\omega_2(\xi_1,\dots,\xi_k)\\
+  (\lambda\omega)(\xi_1,\dots,\xi_k)     & = \lambda\omega(\xi_1,\dots,\xi_k),\quad\lambda\in\mathbb{R}. 
+\end{align*}
+
+
+The product from Definition \ref{def:2-5} is a bilinear map from $\alt^p(V)\times\alt^q(V)$ to 
+$\alt^{p+q}(V)$. We set $\alt^0(V)=\RR$ and expand the product to $\alt^0(V)\times\alt^p(V)$ by
+using the vector space structure. The basic formal properties of the alternating forms can now be 
+summarized in. 
+
+
+\begin{theorem}\label{thm:2-12}
+  $Alt^*(V)$ is an anti-commutative and connected graded algebra.
+\end{theorem}
+
+$Alt^*(V)$ is called the exterior or alternating algebra associated to $V$.
+
+
+\begin{lemma}\label{lemma:2-13}
+  For 1-forms $\omega_1, \cdots, \omega_p\in\alt^1(V)$, we have 
+  \begin{align*}
+    (\omega_1\wedge\dots\wedge\omega_p)(\xi_1,\dots,\xi_p)
+    = \det
+    \begin{pmatrix}
+      \omega_1(\xi_1) & \omega_1(\xi_2) & \cdots & \omega_1(\xi_p)\\
+      \omega_2(\xi_1) & \omega_2(\xi_2) & \cdots & \omega_2(\xi_p)\\
+      \vdots          & \vdots          &        & \vdots\\
+      \omega_p(\xi_1) & \omega_p(\xi_2) & \cdots & \omega_p(\xi_p)
+    \end{pmatrix}
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  The case $p=2$ is abvious. We procced by induction on $p$. According to Definition \ref{def:2-5},
+  \begin{align*}
+      & \omega_{1}\wedge(\omega_{2}\wedge\ldots\wedge\omega_{p})(\xi_{1},\ldots,\xi_{p})\\
+    = & \sum_{j=1}^{p}(-1)^{j+1}\omega_{1}(\xi_{j})(\omega_{2}\wedge\ldots\wedge\omega_{p})
+      \Big(\xi_{1},\quad,\dot{\xi}_{j},\ldots,\xi_{p}\Big)
+  \end{align*}
+
+  where $(\xi_1, \cdots, \hat{\xi_j}, \cdots, \xi_p)$ denotes the $p-1$-tuple where 
+  $\xi_j$ has been omitted. The lemma follows by expanding the determinant by the first row.
+\end{proof}
+
+
+Note, from Lemma \ref{lemma:2-13}, that if the 1-forms $\omega_1, \cdot, \omega_p\in\alt^1(V)$ 
+are linearly independent then $\omega_1\wedge\cdots\wedge\omega_p\neq 0$. Indeed, we can choose 
+elements $\xi\in V$ with $\omega_i(\xi_i) = 0$ for $i\neq j$ and $\omega_j(\xi_j) = 0$, so that 
+$\det(\omega_i(\xi_j)) = 1$. Conversely, if $\omega_1, \cdots, \omega_p$ are linearly dependent,
+we can express one of them, say $\omega_p$, as a linear combination of the others. If 
+$\omega_p = \sum_{i=1}^{p-1}{r_i\omega_i}$, then
+\begin{align*}
+  \omega_{1}\wedge\cdots\wedge\omega_{p-1}\wedge\omega_{p}
+  = \sum_{i=1}^{p-1}r_{i}\omega_{1}\wedge\cdots\wedge\omega_{p-1}\wedge\omega_{i}=0,
+\end{align*}
+
+as the determinant in Lemma \ref{lemma:2-13} has two rows. We have proved.

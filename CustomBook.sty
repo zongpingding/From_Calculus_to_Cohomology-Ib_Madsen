@@ -1,0 +1,134 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{CustomBook}[2019/12/01 Custom Book Class]
+\usepackage[
+  paperwidth=15.6cm, 
+  paperheight=24.04cm,
+  left = .5in, right = .5in,
+  top = 1in, bottom = 1in,
+]{geometry}
+\usepackage{graphicx}
+% blank page
+\newcommand*{\blankpage}{%
+  \vspace*{\fill}
+  {\centering This page intentionally left blank.\par}
+  \vspace{\fill}
+}
+\makeatletter
+\renewcommand*{\cleardoublepage}{%
+  \clearpage\if@twoside\ifodd\c@page\else
+  \blankpage
+  \thispagestyle{empty}
+  \newpage
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi
+}
+\makeatother
+
+
+% --> head and foot  settings
+\usepackage{fancyhdr}
+% \def\headrule{}
+\fancyhead[ER, OL]{\thepage}
+\fancyhead[EL, OR]{\leftmark}
+\fancyfoot[C]{}
+
+
+% --> chapter style
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+  {\normalfont\Large\bfseries}
+  {\thechapter.\MakeUppercase}
+  {8pt}{\Large\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{*-1.5}{*4}
+
+
+% --> toc settings
+\usepackage[titles]{tocloft}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cftdot}{\ensuremath{\cdot}}
+\setlength{\cftparskip}{-0.5em}
+\renewcommand{\cftchapfont}{}
+\renewcommand{\cftchappagefont}{}
+\renewcommand{\cftchapnumwidth}{6em}
+\renewcommand{\cftchappresnum}{Chapter\ }
+
+
+% --> optional
+\setlength{\parindent}{0pt}
+\RequirePackage{enumitem}
+
+
+% --> typeset math 
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\C}[1]{\ensuremath{\mathcal{#1}}}
+\let\ss\S
+\renewcommand{\S}[1]{\ensuremath{\mathscr{#1}}}
+\newcommand{\B}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\FF}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\F}[1]{\ensuremath{\bm{#1}}}
+\newcommand{\R}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\K}[1]{\ensuremath{\mathfrak{#1}}}
+% \newcommand{\lr}{\ensuremath{\longrightarrow}}
+\let\LL\ll
+\renewcommand{\ll}{\ensuremath{\longleftarrow}}
+\newcommand{\equ}{\ensuremath{\Longleftrightarrow}\,}
+\newcommand{\sr}{\ensuremath{\longmapsto}}
+\newcommand{\lrr}[2][]{\ensuremath{\xRightarrow[#1]{#2}}}
+\newcommand{\lr}[2][]{\ensuremath{\xrightarrow[#1]{#2}}}
+\renewcommand{\lll}[2][]{\ensuremath{\xLeftarrow[#1]{#2}}}
+\newcommand{\ns}{\ensuremath{\varnothing}}
+\newcommand{\A}{\ensuremath{\forall}}
+% Math Operator
+\let\ker\relax
+\DeclareMathOperator{\alt}{Alt}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\ker}{Ker}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\trace}{trace}
+
+
+% --> especially for this book
+\RequirePackage{mathtools, amsthm}
+\newcommand\RR{\B{R}}
+\renewcommand{\theequation}{\arabic{equation}}
+\newtheoremstyle{CustomBookMath}%
+  {8pt}{8pt}{}{0pt}%
+  {\bfseries}{}{.25em}%
+  {\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
+\theoremstyle{CustomBookMath}
+\newtheorem{question}{Question}[chapter]
+\newtheorem{example}[question]{Example}
+\newtheorem{theorem}[question]{Theorem}
+\newtheorem{lemma}[question]{Lemma}
+\newtheorem{remark}[question]{Remark}
+\newtheorem{definition}[question]{Definition}
+% proof env
+\let\oldproofname=\proofname
+\renewcommand{\proofname}{\upshape\textsc{\oldproofname}}
+
+
+% --> index and reference
+\RequirePackage[backend=biber]{biblatex}
+\addbibresource{ref.bib}
+\RequirePackage{makeidx}
+\newcommand{\Index}[1]{\textit{#1}\index{#1}}
+
+
+% --> hyperref
+\RequirePackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+  bookmarksnumbered,
+  colorlinks = true,
+  linkcolor = teal,
+  urlcolor = red,
+  citecolor = blue,
+  pdfauthor = {Eureka},
+  pdftitle = {From Calculus to Cohomology -- Ib Madsen and Jørgen Tornehave},
+}
+\providecommand\phantomsection{}
