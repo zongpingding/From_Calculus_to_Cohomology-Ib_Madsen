@@ -30,7 +30,7 @@ transpositions. The transposition that interchanges $i$ and $j$ will be denoted 
 Furthemiore, and this fact will be used below, any permutation can be written as a
 composition of transpositions of the type $(i, i+1), (i, i+1)\circ(i+1, i+2)\circ(i, i+1) =
   (i, i + 2)$ and so forth. The sign of a permutation:
-\begin{align}
+\begin{align}\label{eq:2-1}
   \sign: S(k) \to \{\pm 1\}
 \end{align}
 
@@ -59,9 +59,9 @@ product consisting of an odd number of transpositions.
 \end{proof}
 
 
-\begin{example}
+\begin{example}\label{example:2-3}
   Let $V = \RR^k$ and $\xi_i = (\xi_{i1}, \cdots, \xi_{ik})$. The function $\omega(\xi_1, \cdots, \xi_k) = \det((\xi_{ij}))$
-  is alternating, by the calculation rules for determinants.
+  is alternating, by the calculational rules for determinants.
 \end{example}
 
 We want to define the exterior product
@@ -200,7 +200,7 @@ for $\omega_1, \omega_1' \in\alt^p(V)$ and $\omega_2, \omega_2'\in\alt^q(V)$.
 \end{lemma}
 
 \begin{proof}
-  Let $S(p, q, r)\subset S(p+q+r)$ consist of the permutations $\sigma$ with
+  Let $S(p, q, r)\subseteq S(p+q+r)$ consist of the permutations $\sigma$ with
   \begin{align*}
     \sigma(1) <     & \cdot < \sigma(p)      \\
     \sigma(p+1) <   & \cdot < \sigma(p+q)    \\
@@ -215,10 +215,12 @@ for $\omega_1, \omega_1' \in\alt^p(V)$ and $\omega_2, \omega_2'\in\alt^q(V)$.
   \end{align*}
 
   There are bijections
-  \begin{align*}
-    S(p, q, r) \times S(p, q, r)         & \lr{\cong} S(p, q, r); \quad (\sigma, \tau)\mapsto\sigma\circ\tau   \\
-    S(p, q, r) \times S(p, q, \tilde{r}) & \lr{\cong} S(p, q, r); \quad (\sigma, \tau)\mapsto\tau\circ\sigma.
-  \end{align*}
+  \begin{align}\label{eq:2-2}
+    \begin{aligned}
+      S(p, q, r) \times S(p, q, r)         & \lr{\cong} S(p, q, r); \quad (\sigma, \tau)\mapsto\sigma\circ\tau   \\
+      S(p, q, r) \times S(p, q, \tilde{r}) & \lr{\cong} S(p, q, r); \quad (\sigma, \tau)\mapsto\tau\circ\sigma.
+    \end{aligned}
+  \end{align}
 
   With these notations we have
   \begin{align*}
@@ -231,8 +233,8 @@ for $\omega_1, \omega_1' \in\alt^p(V)$ and $\omega_2, \omega_2'\in\alt^q(V)$.
     & \hspace*{2em} \omega_3(\xi_{u(p+q+1)},\ldots,\xi_{u(p+q+r)})\Big]
   \end{align*}
 
-  where the last equality follows from the first equation in \ref{eq:1-2}. Quite analogously one can calculate
-  $[(\omega_1\wedge\omega_2)\wedge\omega_3](\xi_1, \cdots, \xi_{p+q+r})$, employing the second equation in \ref{eq:1-2}.
+  where the last equality follows from the first equation in \eqref{eq:2-2}. Quite analogously one can calculate
+  $[(\omega_1\wedge\omega_2)\wedge\omega_3](\xi_1, \cdots, \xi_{p+q+r})$, employing the second equation in \eqref{eq:2-2}.
 \end{proof}
 
 \begin{remark}
@@ -280,7 +282,7 @@ using the vector space structure. The basic formal properties of the alternating
 summarized in. 
 
 
-\begin{theorem}\label{thm:2-12}
+\begin{theorem}\label{theorem:2-12}
   $Alt^*(V)$ is an anti-commutative and connected graded algebra.
 \end{theorem}
 
@@ -326,3 +328,142 @@ $\omega_p = \sum_{i=1}^{p-1}{r_i\omega_i}$, then
 \end{align*}
 
 as the determinant in Lemma \ref{lemma:2-13} has two rows. We have proved.
+
+
+
+\begin{lemma}
+  For 1-form $\omega_1, \cdots, \omega_p$ on $V$, $\omega_1\wedge\cdots\wedge\omega_p \neq 0$ if and only if
+  they are linearly independent.
+\end{lemma}
+
+\begin{theorem}\label{theorem:2-15}
+Let $e_1, \cdots, e_n$ be a basis of $V$ and $\epsilon_1, \cdots, \epsilon_n$ the dual basis of $V^*$. Then 
+\begin{align*}
+  \left\{\epsilon_{\sigma(1)}\wedge\cdots\wedge\epsilon_{\sigma(k)}\right\}_{\sigma\in S(p, n-p)}
+\end{align*}
+
+is a basis of $\alt^p(V^*)$. In particular
+\begin{align*}
+  \dim\alt^p(V^*) = \binom{\dim V}{p}.
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+  Since $\epsilon_i{e_j} = 0$ when $i\neq j$, and $\epsilon_i{e_j}= 1$, Lemma \ref{lemma:2-13} gives 
+  \begin{align}\label{eq:2-3}
+    \epsilon_{i_1}\wedge\cdots\wedge\epsilon_{i_p}(e_{j_1},\ldots,e_{j_p})
+    = \left\{\begin{aligned}
+      & 0             && \text{ if } \{i_1, \cdots, i_p\}\neq \{j_1, \cdots, j_p\},\\
+      & \sign(\sigma) && \text{ if } \{i_1, \cdots, i_p\} = \{j_{\sigma(1)}, \cdots, j_{\sigma(p)}\}.
+    \end{aligned}\right.
+  \end{align}
+
+  Here $\sigma$ is the permutation $\epsilon(i_k) = j_k$. From Lemma \ref{lemma:2-13} and \eqref{eq:2-3} we get
+  \begin{align*}
+    \omega = \sum_{\sigma\in S(p,n-p)}\omega\big(e_{\sigma(1)},\ldots,e_{\sigma(p)}\big)
+      \epsilon_{\sigma(1)}\wedge\ldots\wedge\epsilon_{\sigma(p)}
+  \end{align*}
+
+  for any alternating $p$-form. Thus $\epsilon_{\sigma(1)}\wedge\cdots\wedge\epsilon_{\sigma(p)}$ generates 
+  the vector space $\alt^p(V)$. Linear independence follows from \eqref{eq:2-3}, since a relation
+  \begin{align*}
+    \sum_{\sigma\in S(p,n-p)}\lambda_{\sigma}\epsilon_{\sigma(1)}\wedge\ldots\wedge\epsilon_{\sigma(p)}=0,\quad\lambda_{\sigma}\in\mathbb{R}
+  \end{align*}
+
+  evaluated on $(e_{\sigma(1)}, \cdots, e_{\sigma(p)})$ gives $\lambda_{\sigma} = 0$.
+\end{proof}
+
+Note from Theorem 2.15 that $\alt^n(V)\lr{\cong}\RR$ if $n = \dim V$ and, as mentioned
+earlier, that $\alt^p(V) = 0$ if $p > n$. A basis of $\alt^n(V)$ is given by $\epsilon_{1}\wedge\cdots\wedge\epsilon_{n}$.
+In particular every alternating $n$-fonn on $\RR^n$ is proportional to the form in Example \ref{example:2-3}.
+
+A linear map $f:V\to W$ induces the linear map 
+\begin{align}\label{eq:2-4}
+  \alt^p(f): \alt^p(W)\to\alt^p(V)
+\end{align}
+
+by setting $\alt^p(f)(W)(\xi_1, \cdots, \xi_p) = \omega(f(\xi_1), \cdots, f(\xi_p))$. For the composition of
+maps we have $\alt^p(g\circ f) = \alt^p(f)\circ\alt^p(g)$, and $\alt^P(\id) = \id$. These two
+properties are summarized by saying that $\alt^p(-)$ is a contravariant functor. If $\dim V = n$ and 
+$f:V\to V$ is a linear map then
+\begin{align*}
+  \alt^p(f): \alt^n(V)\to\alt^n(V)
+\end{align*}
+
+is a linear endomorphism of 1-dimensional vector space and thus multiplication by a number $d$. From Theorem 
+\ref{theorem:2-16} below it follows that $d = \det(f)$. We shall also be using other maps 
+\begin{align*}
+  \alt^p(f): \alt^p(V)\to\alt^p(V)
+\end{align*}
+
+Let $\tr(g)$ denotes the trace of a linear endomorphism $g$.
+
+
+\begin{theorem}\label{theorem:2-16}
+  The characteristic polynomial ofa linear endomorphism $f:V\to V$ is given by
+  \begin{align*}
+    \det(f-t)=\sum\limits_{i=0}^n{(-1)}^i\mathrm{tr}\Big(\mathrm{Alt}^{n-i}(f)\Big)t^i,
+  \end{align*}
+
+  when $n = \dim V$.
+\end{theorem}
+
+\begin{proof}
+Choose a basis $e_1, \cdots, e_n$ of $V$ Assume first that $e_1, \cdots, e_n$ are eigenvectors of $f$,
+\begin{align*}
+  f(e_i) = \lambda_i e_i, i = 1, \cdots, n.
+\end{align*}
+
+Let $\epsilon_1, \cdots, \epsilon_n$ be the dual basis of $\alt^1(V)$. Then
+\begin{align*}
+  \mathrm{Alt}^p(f)\big(\epsilon_{\sigma(1)}\wedge\cdots\wedge\epsilon_{\sigma(p)}\big)
+  = \lambda_{\sigma(1)}\cdot\cdots\lambda_{\sigma(p)}\epsilon_{\sigma(1)}\wedge\cdots\wedge\epsilon_{\sigma(p)}
+\end{align*}
+
+and 
+\begin{align*}
+  \tr \alt^p(f) = \sum_{\sigma\in S(p, n-p)}^{}{\lambda_{\sigma(1)}\cdot\cdots\lambda_{\sigma(p)}}.
+\end{align*}
+
+On the other hand
+\begin{align*}
+  \det(f-t) 
+  = \prod_{i=1}^{n}{(\lambda_i-t)} 
+  = \sum{(-1)^{n-p}\left(\sum{\lambda_{\sigma(1)}\cdot\cdots\lambda_{\sigma(p)}}\right)t^{n-p}}.
+\end{align*}
+
+This proves the formula when $f$ is diagonal.
+
+If $f$ is replaced by $gfg^{-l}$, with $g$ an isomorphism on $V$, then both sides of the
+equation of Theorem \ref{theorem:2-16} remain unchanged. This is obvious for the left-hand
+side and follows for the right-hand side since
+\begin{align*}
+  \alt^p(gfg^{-1}) = \alt^p(g)^{-1}\circ\alt^p(f)\circ\alt^p(g).
+\end{align*}
+
+by the functor property. Hence $\tr\alt^p(g\circ f\circ g^{-l}) = \tr\alt^p(f)$. Consider the
+set
+\begin{align*}
+  D = \{gf^{-1}g^{-1} | f \text{ diagonal }, g \in GL(V)\}.
+\end{align*}
+
+If $V$ is a vector space over $\B{C}$ and all maps are complex linear, then $D$ is dense
+in the set of linear endomorphisms on $V$. We shall not give a formal proof of
+this, but it follows since every matrix with complex entries can be approximated
+arbitrarily closely by a matrix for which all roots of the characteristic polynomial
+are distinct. Since eigenvectors belonging to different eigenvalues are linearly
+independent, $V$ has a basis consisting of eigenvectors for such a matrix, which
+then belongs to $D$.
+
+For general $f\in\R{End}(V)$ we can choose a sequence $d_n\in D$ with $d_n\to f$ 
+(i.e. the $(i, j)$-th element in dn converges to the $(i, j)$-th element in $f$). 
+Since both sides in the equation we want to prove are continuous, and since the 
+equation holds for $d_n$ , it follows for $f$.
+\end{proof}
+
+
+It is not true that the set of diagonalizable matrices over $\RR$ is dense in the set of
+matrices over $\RR - a$ matrix with imaginary eigenvalues cannot be approximated
+by a matrix of the form $gfg^{-1}$, with f a real diagonal matrix. Therefore in the
+proof of Theorem \ref{theorem:2-16} we. must pass to complex linear maps, even if we are
+mainly interested in real ones.

@@ -57,6 +57,11 @@
 \RequirePackage{enumitem}
 
 
+% --> commutative diagram
+\RequirePackage{tikz-cd}
+\usetikzlibrary{arrows.meta}
+
+
 % --> typeset math 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -81,15 +86,21 @@
 \newcommand{\A}{\ensuremath{\forall}}
 % Math Operator
 \let\ker\relax
+\let\div\relax
+\let\hom\relax
 \DeclareMathOperator{\alt}{Alt}
-\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\div}{div}
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\curl}{curl}
 \DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\cok}{Cok}
 \DeclareMathOperator{\ker}{Ker}
 \DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\hom}{Hom}
 \DeclareMathOperator{\grad}{grad}
-\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\tr}{tr}
 
 
 % --> especially for this book

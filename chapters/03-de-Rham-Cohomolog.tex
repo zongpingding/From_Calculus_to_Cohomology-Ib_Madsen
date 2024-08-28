@@ -1,1 +1,249 @@
 \chapter{de Rham Cohomolog}
+In this chapter $U$ will denote an open set in $\RR^n, {e_1,\cdots, e_n}$ the standard basis
+and ${E_1, \cdots,E_n}$ the dual basis of $\alt^1(\RR^n)$.
+
+\begin{definition}
+  A differential $p$-fonn on $U$ is a smooth map $w:U\to \alt^1(\RR^n)$.
+The vector space of all such maps is denoted by $\Omega^p(U)$.
+\end{definition}
+
+If $p = 0$ then $\alt^1(\RR^n) = \RR$ and $\Omega^0(U)$ is just the vector space of all smooth
+real-valued functions on $U$, $\Omega^0(U) = \Omega^0(U, \RR)$.
+
+The usual derivative of a smooth map $\omega:U\to\alt^p(\RR^n)$ is denoted $D\omega$ and its
+value at $x$ by $D_x\omega$. It is the linear map
+\begin{align*}
+  D_x\omega:\RR^n &\to \alt^p(\RR^n)
+\end{align*}
+
+with 
+\begin{align*}
+  (D_x\omega)(e_i) 
+  = \frac{\dd }{\dd t}\omega(x+te_i)\Big|_{t=0}
+  = \frac{\partial \omega}{\partial x_i}(x)
+\end{align*}
+
+In $\alt^p(\RR^n)$ we have the basis $\epsilon_1\wedge\cdots\wedge\epsilon_p$ where 
+$I$ runs over all sequences with $1\le i_1<i_2<\cdots<i_p\le n$. Hence every $\omega\in\Omega^p(U)$ 
+can be written in the form $\omega(x) = \sum_{}^{}{\omega_I(x)\epsilon_I}$, with $\omega_I(x)$ smooth 
+real-valued functions of $x\in U$. The differential $D_x\omega$ is the linear map
+
+\begin{align}\label{eq:3-1}
+  D_{x}\omega(e_{j})=\sum_{I}\frac{\partial\omega_{I}}{\partial x_{j}}(x)\epsilon_{I} , j=1,\ldots,n.
+\end{align}
+
+The function $x\mapsto D_x\omega$ is a smooth map from $U$ to the vector space of linear
+maps from $\RR^n$ to $\alt^p(\RR^n)$
+
+
+\begin{definition}\label{def:3-2}
+  The exterior differential $d:\Omega^p(U)\to \Omega^{p+1}(U)$ is the linear operator
+  \begin{align*}
+    d_x\omega(\xi_1,\ldots,\xi_{p+1})
+    = \sum_{l=1}^{p+1}\left(-1\right)^{l-1}D_x\omega(\xi_l)(\xi_1,\ldots,\hat{\xi}_l,\ldots,\xi_{p+1})
+  \end{align*}
+
+  with $(\xi_1,\ldots,\hat{\xi}_l,\ldots,\xi_{p+1}) = (\xi_1, \cdots, \xi_{l-1}, \xi_{l+1}, \cdots, \xi_{p+1})$.
+\end{definition}
+
+
+It follows from Lemma 2.7 that $d_x\omega\in\alt^{p+1}\RR^n$. Indeed, if $\xi_i = \xi_{i+1}$, then 
+\begin{align*}
+    &\sum_{l=1}^{p+1}\left(-1\right)^{l-1}D_{x}\omega(\xi_{l})(\xi_{1},\ldots,\hat{\xi}_{l},\ldots,\xi_{p+1}) \\
+  = & (-1)^{i-1}D_{x}\omega(\xi_{i})(\xi_{1},\ldots,\hat{\xi}_{i},\ldots,\xi_{p+1}) \\
+    & +(-1)^{{i}}D_{{x}}\omega(\xi_{{i+1}})(\xi_{1},\ldots,\hat{\xi}_{{i+1}},\ldots,\xi_{{p+1}})
+\end{align*}
+
+
+because $(\xi_1, \cdots, \hat{\xi}_i, \cdots, \xi_{p+1}) = (\xi_1, \cdots, \hat{\xi}_{i+1}, \cdots, \xi_{p+1})$.
+
+\begin{example}\label{example:3-3}
+  Let $x_i:U\to \RR$ be the $i$-th projection. Then $\dd x_i \Omega^1(U)$ is the
+  constant map $\dd x_i:x\to \epsilon_i$. This follows from \eqref{eq:3-1}. In general, for $f\in\Omega^0(U)$,
+  \eqref{eq:3-1} shows that
+  \begin{align}\label{eq:3-2}
+    \dd_x f(\zeta) = \frac{\partial f }{\partial x_i }\zeta^1 + \cdots + \frac{\partial f}{\partial x_n}\zeta^n
+  \end{align}
+
+  with $(\zeta^1, \cdots, \zeta^n) = \zeta$. In other words, $\dd f = \sum{\frac{\partial f}{\partial x_i}\dd x_i}$.  
+\end{example}
+
+
+\begin{lemma}\label{lemma:3-1}
+  If $\omega(x) = f(x)\epsilon_I$ then $\dd_x\omega = \dd_xf\wedge\epsilon_I$.
+\end{lemma}
+
+\begin{proof}
+  By (1) we have
+  \begin{align*}
+    D_x\omega(\zeta)
+    = (D_xf)(\zeta)\epsilon_I
+    = \left(\frac{\partial f}{\partial x_1}\zeta^1+\cdots+\frac{\partial f}{\partial x_n}\zeta^n\right)\epsilon_I
+    = d_xf(\zeta)\epsilon_I
+  \end{align*}
+
+  and Definition \ref{def:3-2} gives
+  \begin{align*}
+    d_{x}\omega(\xi_{1},\cdots,\xi_{p+1}) 
+    = \sum_{k=1}^{p+1}\left(-1\right)^{k-1}d_{x}f(\xi_{k})\epsilon_{I}\left(\xi_{1},\cdots,\hat{\xi}_{k},\cdots\xi_{p+1}\right) \\
+    = [d_{x}f\wedge\epsilon_{I}](\xi_{1},\cdots,\xi_{p+1}). 
+  \end{align*}
+\end{proof}
+
+Note for $\epsilon_I\in \alt^p(\RR^n)$ that
+\begin{align*}
+  \epsilon_k\wedge\epsilon_I 
+  = \left\{\begin{aligned}
+    &0 && \text{ if } k\in I \\
+    &(-1)^{r}\epsilon_{J} && \text{ if } k\not\in I
+  \end{aligned}\right.
+\end{align*}
+
+with $r$ the number determined by $i_r < k < i_{r+l}$ and $J=(i_1, \cdots, i_r, k, \cdots, i_p)$.
+
+
+\begin{lemma}\label{lemma:3-5}
+  For $p\ge 0$ the composition $\Omega^p(U)\to\Omega^{p+1}(U)\to\Omega^{p+2}(U)$ is 
+  indentity zero.
+\end{lemma}
+
+\begin{proof}
+  Let $\omega = f\epsilon_I$. Then 
+  \begin{align*}
+    \dd\omega 
+    = \dd f\wedge\epsilon_I
+    = \frac{\partial f }{\partial x_1}\epsilon_1\wedge\epsilon_I + \cdots + \frac{\partial f}{\partial x_n}\epsilon_n\wedge\epsilon_I
+  \end{align*}
+
+  Now use $\epsilon_i\wedge\epsilon_i=0$ and $\epsilon_i\wedge\epsilon_j=-\epsilon_j\wedge\epsilon_i$ to obtain that 
+  \begin{align*}
+      d^{2}\omega 
+      & = \sum_{i,j=1}^{n}\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}
+        \epsilon_{i}\wedge(\epsilon_{j}\wedge\epsilon_{I}) \\
+      & = \sum_{i<j}\left(\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}-\frac{\partial^{2}f}{\partial x_{j}\partial x_{i}}\right)
+        \epsilon_{i}\wedge\epsilon_{j}\wedge\epsilon_{I}\\
+      & = 0.
+  \end{align*}
+\end{proof}
+
+The exterior product in $\alt^{*}\RR^n$, induces an exterior product on $\Omega^*(U)$ upon 
+defining
+\begin{align*}
+  (\omega_1\wedge\omega_2)(x) = \omega_1(x)\wedge\omega_2(x)
+\end{align*}
+
+The exterior product of a differential $p$-form and a differential $q$-fonn is a
+differential $(p + q)$-form, so we get a bilinear map
+\begin{align*}
+  \wedge: \Omega^p(U)\times\Omega^q(U)\to\Omega^{p+q}(U)
+\end{align*}
+
+For a smooth function $f\in C^\infty(U, \RR)$, we have that
+\begin{align*}
+  (f\omega_1)\wedge\omega_2 = f(\omega_1\wedge\omega_2) = \omega_1\wedge(f\omega_2)
+\end{align*}
+
+This just expresses the bilinearity of the product in $\alt^{*}\RR^n$. Also note that 
+$f\wedge\omega = f\omega$ when $f\in\Omega^0{U}$ and $\omega\in\Omega^p(U)$.
+
+\begin{lemma}\label{lemma:3-6}
+For $\omega_1\in\Omega^p(U)$ and $\omega_2\in\Omega^q(U)$,
+\begin{align*}
+  \dd(\omega_1\wedge\omega_2) = \dd\omega_1\wedge\omega_2 + (-1)^p\omega_1\wedge\dd\omega_2
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+  It is sufficient to show the formula when $\omega_1=f\epsilon_I$ and $\omega_2=g\epsilon_J$. But 
+  then $\omega_1\wedge\omega_2 = fg\epsilon_I\wedge\epsilon_J$, and 
+  \begin{align*}
+    d(\omega_1\wedge\omega_2) 
+    & = d(fg)\wedge\epsilon_{I}\wedge\epsilon_{J}=((df)g+fdg)\wedge\epsilon_{I}\wedge\epsilon_{J} \\
+    & = dfg\wedge\epsilon_{I}\wedge\epsilon_{J}+fdg\wedge\epsilon_{I}\wedge\epsilon_{J} \\
+    & = df\wedge\epsilon_{I}\wedge g\epsilon_{J}+(-1)^{p}f\epsilon_{I}\wedge dg\wedge\epsilon_{J} \\
+    & = d\omega_{1}\wedge\omega_{2}+(-1)^{p}\omega_{1}\wedge d\omega_{2}. 
+  \end{align*}
+\end{proof}
+
+Summing up, we have introduced an anti-commutative algebra $\Omega^*(U)$ with a \Index{differential},
+\begin{align*}
+  \dd:\Omega^*(U)\to\Omega^{*+1}(U), \qquad \dd\circ\dd = 0
+\end{align*}
+
+and $\dd$ is a \Index{derivation} (satisfies Lemma \ref{lemma:3-6}): $(\Omega^*(U), \dd)$ is a commutative DGA
+(differential graded algebra). It is called the \Index{de Rham complex} of $U$.
+
+\begin{theorem}\label{theorem:3-7}
+There is precisely one linear operator $\dd:\Omega^0(U)\to\Omega^{p+1}(U), p = 0,1, \cdots,$ such that  
+\begin{enumerate}[label=(\roman*)]
+  \item $f\in\Omega^*(U), \dd f = \frac{\partial f }{\partial x_i }\epsilon_1 + \cdots + \frac{\partial f}{\partial x_n}\epsilon_n$
+  \item $\dd\circ\dd = 0$
+  \item $\dd(\omega_1\wedge\omega_2) = \dd\omega_1\wedge\omega_2 + (-1)^p\dd\omega_1\wedge\dd\omega_1$ if $\omega_1\in\Omega^p(U)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We have already defined $d$ with the asserted properties. Conversely assume
+that $\dd'$ is a linear operator satisfying (i), (ii) and (iii). We will show that $\dd'$ is
+the exterior differential.
+
+The first property tells us that $\dd = \dd'$ on $\Omega^0(V)$. In particular $\dd' x_i = \dd x_i$ for the
+$i$-th projection $x_i:U\to\RR$. It follows from Example \ref{example:3-3} that $\dd' x_i = \epsilon_i$, 
+the constant function. Since $\dd'\circ\dd' = 0$ we have that $\dd'\epsilon_i$. Then (iii) gives $\dd'\epsilon_I = 0$. 
+Now let $\omega = f\epsilon_I = f\wedge\epsilon_I$. Again by using (iii),
+\begin{align*}
+  \dd'\omega = \dd'f\wedge\epsilon_I + f\wedge \dd'\epsilon_I
+  = \dd'f\wedge\epsilon_I
+  = \dd f\wedge\epsilon_I
+  = \dd\omega.  
+\end{align*}
+
+Since every $p$-form is the sum of such special $p$-forms, $\dd = \dd'$ on all of $\Omega^p(U)$.
+\end{proof}
+
+For an open set $V$ in $\RR^3$, $\dd:\Omega^1(U)\to\Omega^2(U)$ is given as 
+\begin{align*}
+  \dd(f_1\epsilon_1+f_2\epsilon_2+f_3\epsilon_3)
+  = \dd f_1\wedge\epsilon_1+\dd f_2\wedge\epsilon_2+\dd f_3\wedge\epsilon_3 \\
+  = \left(\frac{\partial f_{2}}{\partial x_{1}} - \frac{\partial f_{1}}{\partial x_{2}}\right)\epsilon_{1}\wedge\epsilon_{2}
+    + \left(\frac{\partial f_{3}}{\partial x_{2}} - \frac{\partial f_{2}}{\partial x_{3}}\right)\epsilon_{2}\wedge\epsilon_{3}
+    + \left(\frac{\partial f_{1}}{\partial x_{3}} - \frac{\partial f_{3}}{\partial x_{1}}\right)\epsilon_{3}\wedge\epsilon_{1}.
+\end{align*}
+
+The first equality follows from Theorem \ref{theorem:3-7}.(iii), as $\epsilon_i:U\to\alt^1(\RR^3)$ is the
+constant map, and hence $\dd\epsilon_i=0$, by (1). Alternatively, we have already noted
+that the 1-forms $\epsilon_i$ and $\dd x_i$ agree, and hence $\dd\epsilon_i = \dd\circ\dd(x_i) = 0$ 
+by Theorem \ref{theorem:3-7}.(ii). The second equality comes from the anti-commutativity, $\epsilon_i\wedge\epsilon_j = -\epsilon_j\wedge\epsilon_i$.
+and Theorem \ref{theorem:3-7}.(i).
+
+Quite analogously we can calculate that
+\begin{align*}
+  \dd(g_3\epsilon_1\wedge\epsilon_2+g_1\epsilon_2\wedge\epsilon_3+g_2\epsilon_3\wedge\epsilon_1)
+  = \left(\frac{\partial g_1}{\partial x_1}+\frac{\partial g_2}{\partial x_2}+\frac{\partial g_3}{\partial x_3}\right)
+    \epsilon_1\wedge\epsilon_2\wedge\epsilon_3.
+\end{align*}
+
+\begin{definition}\label{def:3-8}
+The $p$-th (de Rham) cohomology group is the quotient vector space
+\begin{align*}
+  H^p(U) 
+  = \frac {\ker\big(d\colon\Omega^p(U)\to\Omega^{p+1}(U)\big)}
+          {\im(d\colon\Omega^{p-1}(U)\to\Omega^p(U))}.
+\end{align*}
+
+In particular $H^p(U) = 0$ for $p<0$, and $H^0(U)$ is the kernel of
+\begin{align*}
+  \dd:C^\infty(U)\to\Omega^1(U).
+\end{align*}
+
+and therefore is the vector space of maps $f\in C^\infty(U, \RR)$ with vanishing 
+derivatives. This is precisely the space of locally constant maps.
+
+Let $\sim$ be the equivalence relation on the open set $V$ such that $q_1\sim q_2$ if there
+exists a continuous curve $\alpha: [a, b]\to V$ with $\alpha(a) = q_1$ and $\alpha(b) = q_2$. The
+equivalence classes partition $V$ into disjoint open subsets, namely the connected components of $U$. 
+A connected component of $U$ is a maximal non-empty subset $W$ of $U$ that cannot be written as the 
+disjoint union of two non-empty open subsets of $W$ (in the topology induced by $\RR^n$). An open 
+set $U\subseteq\RR^n$ has at most countably many connected components (in each of them one can choose 
+a point with rational coordinates.)
+\end{definition}
