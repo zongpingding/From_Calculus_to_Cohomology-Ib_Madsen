@@ -8,7 +8,7 @@ A sequence of vector spaces and linear maps
   A \lr{f} B \lr{g} C
 \end{align}
 
-is said to be \Index{exact} when $\im f = \ker g$, where as above
+is said to be \Index{exact}\index{sequence!exact} when $\im f = \ker g$, where as above
 \begin{align*}
   \ker g & = \{b\in B | g(b) = 0\}\qquad \text{the kernel of } g \\
   \im f  & = \{f(a) | a\in A\}\qquad \text{the image of } f
@@ -31,7 +31,7 @@ for all $i$. An exact sequence of the form
   0\lr{}A\lr{f}B\lr{g}C\lr{}0
 \end{align}
 
-is called \Index{short exact}. This is equivalent to requiring that
+is called \Index{short exact}\index{sequence!short exact}. This is equivalent to requiring that
 \begin{align*}
   \text{$f$ is injective, $g$ is surjective and $\im f = \ker g$}
 \end{align*}
@@ -46,7 +46,7 @@ For a short exact sequence, $g$ induces an isomorphism
   g:\cok(f) \lr{\cong} C.
 \end{align*}
 
-Every (long) exact sequence, as in \eqref{eq:4-2}, induces short exact sequences (which can
+Every (long) exact sequence, as in \eqref{eq:4-2}, induces short \Index{exact sequences} (which can
 be used to calculate $A^i$)
 \begin{align*}
   0\lr{} \im\dd^{i-1} \lr{} \im\dd^i \lr{} 0
@@ -59,7 +59,7 @@ Furthennore the isomorphisms
 
 are frequently applied in concrete calculations.
 
-The direct sum of vector spaces A and B is the vector space
+The \Index{direct sum} of vector spaces A and B is the vector space
 \begin{align*}
    & A\oplus B  = \{(a,b) | a\in A, b\in B\}                       \\
    & \lambda(a, b)  = (\lambda a, \lambda b), \qquad \lambda\in\RR \\
@@ -97,8 +97,8 @@ basis of $A\oplus B$. In particular
     H^p(A^*) = \ker\dd^p/\im\dd^{p-1}.
   \end{align*}
 
-  The elements of Ker $\dd^p$ are called $p$-cycles (or are said to be closed) and the
-  elements of $\im\dd^{p-1}$ are called $p$-boundaries (or said to be exact). The elements
+  The elements of Ker $\dd^p$ are called $p$-cycles\index{cycle}\index{$p$-cycle} (or are said to be closed) and the
+  elements of $\im\dd^{p-1}$ are called $p$-boundaries\index{boundary}\index{$p$-boundary} (or said to be exact). The elements
   of $H^p(A^*)$ are called \Index{cohomology classes}.
 
   A chain map $f:A^*\to B^*$ between chain complexes consists of a family $f^p: A^p\to B^p$ of linear maps, satisfying
@@ -130,7 +130,7 @@ basis of $A\oplus B$. In particular
   same cohomology class.
 \end{proof}
 
-A category $C$ consists of ``objects'' and ``morphisms'' between them, such that
+A \Index{category} $C$ consists of ``objects'' and ``morphisms'' between them, such that
 ``composition'' is defined. If $f:C_1\to C_2$ and $g:C_2\to C_3$ are morphisms, then
 there exists a morphism $g\circ f: C_1\to C3$. Furthermore it is to be assumed that
 $\id_C: C\to C$ is a morphism for every object $C$ of $C$. The concept is best illustrated
@@ -146,14 +146,14 @@ by examples:
   \item Every partially ordered set is a category with one morphism from $c$ to $d$, when $c\le d$.
 \end{itemize}
 
-A contravariant functor $F:\C{C}\to \C{V}$ between two categories maps every object
+A contravariant functor\index{functor!contravariant} $F:\C{C}\to \C{V}$ between two categories maps every object
 $C\in\ob\C{C}$ to an object $F(C)\in\ob\C{V}$, and every morphism $f:C_1\to C_2$ in $\C{C}$ to
 a morphism $F(f):F(C_2)\to F(C_1)$ in $\C{V}$, such that
 \begin{align*}
   F(g\circ f)=F(f)\circ F(g),\quad F(\id_C)=\id_{F(C)}.
 \end{align*}
 
-A \Index{covariant functor} $F:\C{C}\to\C{V}$ is an assignment in which $F(f):F(C_1)\to F(C_2)$, and
+A \Index{covariant functor}\index{functor!covariant} $F:\C{C}\to\C{V}$ is an assignment in which $F(f):F(C_1)\to F(C_2)$, and
 \begin{align*}
   F(g\circ f)=F(g)\circ F(f),\quad F(\id_C)=\id_{F(C)}.
 \end{align*}
@@ -170,7 +170,7 @@ directions. We give a few examples:
   \item $F(C) = \hom(C, A), F(\phi):\psi \to\phi\circ\psi$. This is a covariant functor from the
         category of vector spaces to itself.
   \item Let $\C{U}$ be the category of open sets in Euclidean spaces and smooth maps,
-        and Vect the category of vector spaces. The vector space of differential
+        and \Index{Vect} the category of vector spaces. The vector space of differential
         $p$-forms on $U\in\C{U}$ defines a contravariant functor
         \begin{align*}
           \Omega^p(U):\C{U}\to \R{Vect}.
@@ -225,7 +225,7 @@ is surjective, the pre-image $(g^P)^{-1}(c)$ of a $p$-cycle with $c\in C^p$ need
 a cycle. We shall measure when this is the case by introducing.
 
 
-\begin{definition}
+\begin{definition}\label{def:4-5}
   For a short exact sequence of chain complexes $0\lr{}A^*\lr{f}B^*\lr{g}C^*\lr{}0$, we define
   \begin{align*}
     \partial^*: H^p(C^*) \to H^{p+1}(A^*)
@@ -328,7 +328,7 @@ is exact.
 \end{theorem}
 
 
-\begin{definition}
+\begin{definition}\label{def:4-10}
   Two chain maps $f, g:A^*\to B^*$ are said to be \Index{chain homotopic} if there exists a linear map
 $s:A^p\to B^{p-1}$ satisfying
 \begin{align*}

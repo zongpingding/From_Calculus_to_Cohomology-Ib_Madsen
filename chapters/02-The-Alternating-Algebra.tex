@@ -4,13 +4,13 @@ Let $V$ be a vector space over $\RR$. A map
   f: \underbrace{V\times V\times \cdots \times V}_{k\text{ times}} \to \RR
 \end{align*}
 
-is called $k$-linear (or multilinear), if $f$ is linear in each factor.
+is called \Index{$k$-linear} (or \Index{multilinear}), if $f$ is linear in each factor.
 
 
-\begin{definition}
+\begin{definition}\index{alternating!map}
   A $k$-linear map $\omega: V^k\to\RR$ is said to be alternating if
   $\omega(\xi_1, \cdots, \xi_k) = 0$ whenever $\xi_i=\xi_j$ for some pair $i\neq j$. The vector space
-  of alternating, $k$-linear maps is denoted by $\alt^k(V)$.
+  of alternating, $k$-linear maps is denoted by $\alt^k(V)$\index{$\alt^k(V)$}.
 \end{definition}
 
 
@@ -64,15 +64,15 @@ product consisting of an odd number of transpositions.
   is alternating, by the calculational rules for determinants.
 \end{example}
 
-We want to define the exterior product
+We want to define the \Index{exterior product}
 \begin{align*}
   \wedge: \alt^p(V)\times\alt^q(V) \to \alt^{p+q}(V).
 \end{align*}
 
 When $p=q=1$, it is given by $(\omega_1\wedge\omega_2) = \omega_1(\xi_1)\omega_2(\xi_2) - \omega_2(\xi_1)\omega_1(\xi_2)$.
 
-\begin{definition}
-  A $(p, q)$-shuffle $\sigma$ is a permutation of the set $\{1, \cdots, p + q\}$ satisfying
+\begin{definition}\label{def:2-4}
+  A \Index{$(p, q)$-shuffle} $\sigma$ is a permutation of the set $\{1, \cdots, p + q\}$ satisfying
   \begin{align*}
     \sigma(1) < \cdots < \sigma(p) \quad\text{and}\quad \sigma(p + 1) < \cdots < \sigma(p + q).
   \end{align*}
@@ -253,10 +253,10 @@ this causes the factor $\frac{1}{p!q!}$, so $\omega_1\bar{\wedge}\omega_2 = \ome
 
 An $\RR$-algebra $A$ consists of a vector space over $\RR$ and a bilinear map $\mu:A\times A\to A$
 which is associative, $\mu(a, \mu(b,c)) = \mu(\mu(a, b), c)$ for every $a,b,c \in A$. The
-algebra is called \Index{unitary} if there exists a unit element for $\mu, \mu(1, a) = \mu( a, 1) = a$
+algebra is called \Index{unitary}\index{unitary algebra} if there exists a unit element for $\mu, \mu(1, a) = \mu( a, 1) = a$
 for all $a\in A$.
 
-\begin{definition}\;\par
+\begin{definition}\label{def:2-11}\;\par
   \begin{enumerate}[label=(\roman*)]
     \item A graded $\RR$-algebra $A_*$ is a sequence of vector spaces $A_k, k = 0,1, \cdots$,
       and bilinear maps $\mu:A_k\times A_l\to A_{k+l}$ which are associative.
@@ -286,7 +286,7 @@ summarized in.
   $Alt^*(V)$ is an anti-commutative and connected graded algebra.
 \end{theorem}
 
-$Alt^*(V)$ is called the exterior or alternating algebra associated to $V$.
+$Alt^*(V)$ is called the exterior\index{exterior algebra} or alternating algebra\index{alternating!algebra} associated to $V$.
 
 
 \begin{lemma}\label{lemma:2-13}
@@ -384,7 +384,7 @@ A linear map $f:V\to W$ induces the linear map
 
 by setting $\alt^p(f)(W)(\xi_1, \cdots, \xi_p) = \omega(f(\xi_1), \cdots, f(\xi_p))$. For the composition of
 maps we have $\alt^p(g\circ f) = \alt^p(f)\circ\alt^p(g)$, and $\alt^P(\id) = \id$. These two
-properties are summarized by saying that $\alt^p(-)$ is a contravariant functor. If $\dim V = n$ and 
+properties are summarized by saying that $\alt^p(-)$ is a \Index{contravariant functor}\index{{functor!contravariant}}. If $\dim V = n$ and 
 $f:V\to V$ is a linear map then
 \begin{align*}
   \alt^p(f): \alt^n(V)\to\alt^n(V)

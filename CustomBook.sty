@@ -106,6 +106,8 @@
 % --> especially for this book
 \RequirePackage{mathtools, amsthm}
 \newcommand\RR{\B{R}}
+\newcommand\sime{\backsimeq}
+\newcommand\simee{\cong}
 \renewcommand{\theequation}{\arabic{equation}}
 \newtheoremstyle{CustomBookMath}%
   {8pt}{8pt}{}{0pt}%
@@ -118,6 +120,9 @@
 \newtheorem{lemma}[question]{Lemma}
 \newtheorem{remark}[question]{Remark}
 \newtheorem{definition}[question]{Definition}
+\newtheorem{corollary}[question]{Corollary}
+\newtheorem{proposition}[question]{Proposition}
+\newtheorem{addendum}[question]{Addendum}
 % proof env
 \let\oldproofname=\proofname
 \renewcommand{\proofname}{\upshape\textsc{\oldproofname}}

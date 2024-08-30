@@ -3,7 +3,7 @@ In this chapter $U$ will denote an open set in $\RR^n, {e_1,\cdots, e_n}$ the st
 and ${E_1, \cdots,E_n}$ the dual basis of $\alt^1(\RR^n)$.
 
 \begin{definition}
-  A differential $p$-fonn on $U$ is a smooth map $w:U\to \alt^1(\RR^n)$.
+  A differential $p$-form\index{differential!{$p$-form}} on $U$ is a smooth map $w:U\to \alt^1(\RR^n)$.
 The vector space of all such maps is denoted by $\Omega^p(U)$.
 \end{definition}
 
@@ -37,7 +37,8 @@ maps from $\RR^n$ to $\alt^p(\RR^n)$
 
 
 \begin{definition}\label{def:3-2}
-  The exterior differential $d:\Omega^p(U)\to \Omega^{p+1}(U)$ is the linear operator
+  The exterior differential\index{exterior differential}\index{differential!exterior} $d:\Omega^p(U)\to \Omega^{p+1}(U)$ is 
+  the linear operator
   \begin{align*}
     d_x\omega(\xi_1,\cdots,\xi_{p+1})
     = \sum_{l=1}^{p+1}\left(-1\right)^{l-1}D_x\omega(\xi_l)(\xi_1,\cdots,\hat{\xi}_l,\cdots,\xi_{p+1})
@@ -170,8 +171,8 @@ Summing up, we have introduced an anti-commutative algebra $\Omega^*(U)$ with a 
   \dd:\Omega^*(U)\to\Omega^{*+1}(U), \qquad \dd\circ\dd = 0
 \end{align*}
 
-and $\dd$ is a \Index{derivation} (satisfies Lemma \ref{lemma:3-6}): $(\Omega^*(U), \dd)$ is a commutative DGA
-(differential graded algebra). It is called the \Index{de Rham complex} of $U$.
+and $\dd$ is a \Index{derivation} (satisfies Lemma \ref{lemma:3-6}): $(\Omega^*(U), \dd)$ is a commutative \Index{DGA}
+(differential graded algebra\index{differential!graded algebra}). It is called the \Index{de Rham complex} of $U$.
 
 \begin{theorem}\label{theorem:3-7}
 There is precisely one linear operator $\dd:\Omega^0(U)\to\Omega^{p+1}(U), p = 0,1, \cdots,$ such that  
@@ -265,8 +266,8 @@ It follows that $\dim_\RR H^0(U)$ (considered as a non-negative integer or $\inf
 the number of connected components of $U$.
 
 
-The elements in $\Omega^p(U)$ with $\dd\omega = 0$ are called the closed $p$-forms. The elements
-of the image $\Omega^{p-1}(U)\subset\Omega^p(U)$ are the exact $p$-forms. The $p$-th cohomology
+The elements in $\Omega^p(U)$ with $\dd\omega = 0$ are called the closed \Index{$p$-forms}. The elements
+of the image $\Omega^{p-1}(U)\subset\Omega^p(U)$ are the \Index{exact $p$-forms}. The $p$-th cohomology
 group thus measures whether every closed $p$-form is exact. This condition is
 satisfied precisely when $H^p(u) = 0$. A closed $p$-form $\omega\subset\Omega^p(U)$ gives a
 cohomology class, denoted by
@@ -274,9 +275,8 @@ cohomology class, denoted by
   [\omega] = \omega + \dd\Omega^{p-1}(U) \in H^p(U),
 \end{align*}
 
-and $[\omega] = [\omega']$ if and only if $\omega-\omega'$ is exact. In general the vector space of closed 
-$p$-form and the vector space of exact $p$-forms are infinite-dimensional. In contrast $H^p(U)$ usually has finite 
-dimension.
+and $[\omega] = [\omega']$ if and only if $\omega-\omega'$ is exact. In general the vector space of \Index{closed $p$-form} 
+and the vector space of exact $p$-forms are infinite-dimensional. In contrast $H^p(U)$ usually has finite dimension.
 
 We can define a bilinear, associative and anti-commutative product 
 \begin{align}\label{eq:3-3}
@@ -290,7 +290,7 @@ by setting $[\omega_1][\omega_2] = [\omega_1\wedge\omega_2]$. This is well-defin
   = \omega_1\wedge\omega_2 + \dd(\eta_1\wedge\omega_2 + (-1)^p\omega_1\wedge\omega_2 + \eta_1\wedge\dd\eta_2)
 \end{align*}
 
-We want to make $U\to H^p(U)$ into a \Index{contravariant junctor}. Thus to a smooth
+We want to make $U\to H^p(U)$ into a \Index{contravariant functor}. Thus to a smooth
 map $\phi:U_1\to U_2$ between open sets $U_1\subset\RR^n$ and $U_2\subset\RR^m$, we shall define
 a linear map
 \begin{align*}
