@@ -100,7 +100,7 @@ When $p=q=1$, it is given by $(\omega_1\wedge\omega_2) = \omega_1(\xi_1)\omega_2
 \begin{proof}
   We first show that $\omega_1\wedge\omega_2(\xi_1,, \xi_2, \cdots, \xi_{p+q}) = 0$ when $\xi_i = \xi_j$.
   We let
-  \begin{enumerate}[label=(\roman*)]
+  \begin{enumerate}[(i)]
     \item $S_{12} = \{\sigma\in S(p, q) | \sigma(1) = 1, \sigma(p+1) = 2\}$
     \item $S_{21} = \{\sigma\in S(p, q) | \sigma(1) = 2, \sigma(p+1) = 1\}$
     \item $S_0 = S(p, q) - (S_{12} - S_{21})$
@@ -167,7 +167,7 @@ for $\omega_1, \omega_1' \in\alt^p(V)$ and $\omega_2, \omega_2'\in\alt^q(V)$.
 
   We have $\sign(\tau) = (-1)^{pq}$. Composition with $\tau$ defines bijiection
   \begin{align*}
-    S(p, q) \lr{\cong} S(q, p), \quad \sigma\mapsto\tau\circ\sigma
+    S(p, q) \xra[\cong] S(q, p), \quad \sigma\mapsto\tau\circ\sigma
   \end{align*}
 
   Note that
@@ -217,8 +217,8 @@ for $\omega_1, \omega_1' \in\alt^p(V)$ and $\omega_2, \omega_2'\in\alt^q(V)$.
   There are bijections
   \begin{align}\label{eq:2-2}
     \begin{aligned}
-      S(p, q, r) \times S(p, q, r)         & \lr{\cong} S(p, q, r); \quad (\sigma, \tau)\mapsto\sigma\circ\tau   \\
-      S(p, q, r) \times S(p, q, \tilde{r}) & \lr{\cong} S(p, q, r); \quad (\sigma, \tau)\mapsto\tau\circ\sigma.
+      S(p, q, r) \times S(p, q, r)         & \xra[\cong] S(p, q, r); \quad (\sigma, \tau)\mapsto\sigma\circ\tau   \\
+      S(p, q, r) \times S(p, q, \tilde{r}) & \xra[\cong] S(p, q, r); \quad (\sigma, \tau)\mapsto\tau\circ\sigma.
     \end{aligned}
   \end{align}
 
@@ -237,7 +237,7 @@ for $\omega_1, \omega_1' \in\alt^p(V)$ and $\omega_2, \omega_2'\in\alt^q(V)$.
   $[(\omega_1\wedge\omega_2)\wedge\omega_3](\xi_1, \cdots, \xi_{p+q+r})$, employing the second equation in \eqref{eq:2-2}.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{remark:2-10}
 In other textbook on alternating functions one can often see the definition
 \begin{align*}
     & \omega_{1}\bar{\wedge}\omega_{2}(\xi_{1},\ldots,\xi_{p+q})\\
@@ -257,7 +257,7 @@ algebra is called \Index{unitary}\index{unitary algebra} if there exists a unit 
 for all $a\in A$.
 
 \begin{definition}\label{def:2-11}\;\par
-  \begin{enumerate}[label=(\roman*)]
+  \begin{enumerate}[(i)]
     \item A graded $\RR$-algebra $A_*$ is a sequence of vector spaces $A_k, k = 0,1, \cdots$,
       and bilinear maps $\mu:A_k\times A_l\to A_{k+l}$ which are associative.
     \item The algebra $A_*$ is called connected if there exists a unit element $1\in A_0$ and 
@@ -373,7 +373,7 @@ is a basis of $\alt^p(V^*)$. In particular
   evaluated on $(e_{\sigma(1)}, \cdots, e_{\sigma(p)})$ gives $\lambda_{\sigma} = 0$.
 \end{proof}
 
-Note from Theorem 2.15 that $\alt^n(V)\lr{\cong}\RR$ if $n = \dim V$ and, as mentioned
+Note from Theorem 2.15 that $\alt^n(V)\xra[\cong]\RR$ if $n = \dim V$ and, as mentioned
 earlier, that $\alt^p(V) = 0$ if $p > n$. A basis of $\alt^n(V)$ is given by $\epsilon_{1}\wedge\cdots\wedge\epsilon_{n}$.
 In particular every alternating $n$-fonn on $\RR^n$ is proportional to the form in Example \ref{example:2-3}.
 

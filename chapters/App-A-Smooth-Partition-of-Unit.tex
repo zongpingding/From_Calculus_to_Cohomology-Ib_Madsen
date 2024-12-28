@@ -1,1 +1,85 @@
 \chapter{Smooth Partition of Unit}
+The following technical theorem is a much used tool when working with smooth
+maps and smooth manifolds.
+For a function $f:U\to\RR$ with domain $U\subseteq\RR$ the support of $f$ in $U$ is the set
+\begin{align*}
+  \R{supp}_U(f) = \overline{\{x\in U\big| f(x)\neq 0\}}
+\end{align*}
+
+where the bar denotes the closure of the set in the induced topology on $U$. If $U$ is open 
+in $\RR^n$ then $U-\R{supp}_U(d)$ is the largest open subset of $U$ on which $f$ vanishes.
+
+\begin{theorem}\label{theorem:A.1}
+  If $U\subseteq\RR^n$ is open and $\C{V} = (V_i)_{i\in I}$ is a cover of $U$ by open sets $V_i$, then there exists 
+  smooth functions $\phi_i:U\to\ [0, 1]\; (i\in I)$, satisfying 
+  \begin{enumerate}[(i)]
+    \item $\R{supp}_U(\phi_i)\subseteq V_i$ for all $i\in I$.
+    \item Every $x\in U$ has a neighborhood $W$ on which only finitely many $\phi_i$ do not vanish.
+    \item For every $x\in U$ we have $\sum_{i\in I} \phi_i(x) = 1$.
+  \end{enumerate}
+  We say that $(\phi_i)_{i\in I}$ is a (smooth) partition of unity, which only is subordinate to the 
+  cover $\C{V}$.
+\end{theorem}
+
+A family of functions $\phi_i:U\to\RR$ that satisfy (ii) is called locally finite. Note that
+the sum $\sum_{i\in I}\phi_i$ in this case becomes a well-defined function $U\to\RR$. Moreover,
+it is smooth when all the $\phi_i$ are smooth. The proof of Theorem \ref{theorem:A.1} requires
+some preparations.
+
+
+\begin{lemma}\label{lemma:A.7}
+  If $A\in\RR^n$ is closed and $U\sseq\RR^n$ is open with $A\sseq U$, then there exists 
+  a smooth function $\psi:\RR^n\to [0, 1]$ with $\supp_{\RR^n}(\psi)\sseq U$ and $\psi(x)=1$
+  for $x\in A$.
+\end{lemma}
+
+\begin{proof}
+  Apply Theorem \ref{theorem:A.1} to the cover of $\RR^n$ consisting of the open sets $V_1=U$
+and $V_2 = \RR^n - A$. Now $\psi = \phi_1$ has the desired properties.
+\end{proof}
+
+\begin{lemma}\label{lemma:A.9}
+  Suppose that $A\sseq U_0\sseq U\sseq \RR^n$, where $U_0$ and $U$ are open in
+$\RR^n$ and $A$ is closed in $U$ (in the induced topology from $\RR^n$). Let $h:U\to W$ be
+a continuous map to an open set $W\sseq\RR^m$ with smooth restriction to $U_0$. For
+any continuous function $\epsilon:U\to (0, \infty)$ there exists a smooth map $f:U\to W$ that
+satisfies
+\begin{enumerate}[(i)]
+  \item $\|f(x)-h(x)\|\le \epsilon(x)$ for all $x\in U$.
+  \item $f(x) = h(x)$ for all $x\in A$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  If $W\neq \RR^m$ then $\epsilon(x)$ can be replaced by  
+  \begin{align*}
+    \epsilon_1(x) = \min(\epsilon(x), \frac12\dd(h(x), \RR^n-W))
+  \end{align*}
+  where $\dd(y, \RR^n-W) = \inf\{\|y-z\|\big| z\in\RR^n-W\}$. If $f:U\to W$ satisfies (i) with 
+  $\epsilon_1$ instead of $\epsilon$, we will automatically get $f(U)\sseq W$. Hence, without loas of generality,
+  we may assume that $W = \RR^m$.
+  
+  Using the continuity of $h$ and $\epsilon$, we can find for each $p\in U-A$ an open set 
+  $U_p$ with $p\in U_p\sseq U-A$, such that $\|h(x) - h(p)\|\le \epsilon(x)$ for all $x\in U_p$.
+  Apply Theorem \ref{theorem:A.1} to the open cover of $U$ consisting of the sets $U_0$ and $U_p, p\in U-A$.
+  This yields smooth functions $\phi_0$ and $\phi_p$ from $U$ into $[0,1]$, which satisfy Theorem
+  \ref{theorem:A.1}.(i), (ii) and (iii). By local finiteness, smoothness of $h$ on $U_0$ and the property
+  $\supp_U(\phi_0) \sseq U_0$, we can define a smooth function $f:U\to\RR^m$ by
+  \begin{align*}
+    f(x) = \phi_0(x)h(x) + \sum_{p\in U-A}\phi_p(x)h(p).
+  \end{align*}
+  From Theorem \ref{theorem:A.1}.(iii) one obtain $h(x) = \phi_0(x)h(x) + \sum_{p\in U-A}\phi_p(x)h(p)$ and 
+  thus 
+  \begin{align*}
+    f(x) - h(x) = \sum_{p\in U-A}\phi_p(x)(h(p)-h(x)).
+  \end{align*}
+  Now (ii) of the lemma follows because $\R{Supp}(\phi_p)\sseq U_p\sseq U-A$, and (i) follows from the calculation
+  \begin{align*}
+    \|f(x) - h(x)\|
+      & \le \sum_{p\in U-A}\phi_p(x)\|h(p)-h(x)\|
+        = \sum_{p\in U-A, x\in U_p}\phi_p(x)\|h(p)-h(x)\| \\
+      & \le \sum_{}^{}{\phi_p(x)\epsilon(x)} 
+        = \left(\sum_{}^{}{\phi_p(x)}\right)\cdot \epsilon(x)
+        \le \epsilon(x).
+  \end{align*}
+\end{proof}

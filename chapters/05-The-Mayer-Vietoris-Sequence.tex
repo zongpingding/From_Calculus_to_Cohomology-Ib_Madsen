@@ -14,7 +14,7 @@ $U_\alpha$ will also be convex and $H^*(U_\alpha)$ thus known from the Poincar\'
 Let $U_1$ and $U_2$ be open sets in $\RR^n$ with union $U = U_1\cup U_2$. For $\nu = 1, 2$, let 
 $i_\nu: U_\nu\to U$ and $j_\nu:U_1\cap U_2\to U_\nu$ be the corresponding inclusions. Then the sequence
 \begin{align*}
-  0\lr{}\Omega^p(U)\lr{I^p}\Omega^p(U_1)\oplus\Omega^p(U_2)\lr{J^p}\Omega^p(U_1\cap U_2)\lr{}\lr{}0
+  0\xra[]\Omega^p(U)\xra[I^p]\Omega^p(U_1)\oplus\Omega^p(U_2)\xra[J^p]\Omega^p(U_1\cap U_2)\xra[]\xra[]0
 \end{align*}
 
 is exact, where $I^p(\omega) = (i^*_1(\omega), i^*_2(\omega)), J^p(\omega_1, \omega_2) = j^*_1(\omega_1) - j^*_2(\omega_2)$.
@@ -119,7 +119,7 @@ We have proved:
 Let $U_1$ and $U_2$ be open sets in $\RR^n$ and $U = U_1\cup U_2$.
 There exists an exact sequence of cohomology vector spaces
 \begin{align*}
-  \cdots\lr{}H^p(U)\lr{I^*}H^p(U_1)\oplus H^p(U_2)\lr{J^*}H^p(U_1\cap U_2)\lr{\partial^*}H^{p+1}(U)\lr{}\cdots
+  \cdots\xra[]H^p(U)\xra[I^*]H^p(U_1)\oplus H^p(U_2)\xra[J^*]H^p(U_1\cap U_2)\xra[\partial^*]H^{p+1}(U)\xra[]\cdots
 \end{align*}
 
 Here $I^*(\omega) = (i^*_1([\omega]), i^*_2([\omega]))$ and $J^*([\omega_1], [\omega_2]) = [j^*_1(\omega_1) - j^*_2(\omega_2)]$
@@ -167,14 +167,14 @@ in the notation of Theorem \ref{theorem:5-1}.
 
   by the Poincar\'e lemma and Corollary \ref{corollary:5-3}. From the \Index{Mayer-Vietoris sequence} we have
   \begin{align*}
-    \cdots  & \lr{} H^p(U_1)\oplus H^p(U_2)\lr{J^*}H^p(U_1\cap U_2)\lr{\partial^*}\\
-            & H^{p+1}(\RR^2-\{0\})\lr{I^*} H^{p+1}(U_1)\oplus H^{p+1}(U_2)\lr{}\cdots
+    \cdots  & \xra[] H^p(U_1)\oplus H^p(U_2)\xra[J^*]H^p(U_1\cap U_2)\xra[\partial^*]\\
+            & H^{p+1}(\RR^2-\{0\})\xra[I^*] H^{p+1}(U_1)\oplus H^{p+1}(U_2)\xra[]\cdots
   \end{align*}
 \end{example}
 
 For $p>0$, 
 \begin{align*}
-  0\lr{} H^p(U_1\cap U_2)\lr{\partial^*} H^{p+1}(\RR^2-\{0\})\lr{} 0
+  0\xra[] H^p(U_1\cap U_2)\xra[\partial^*] H^{p+1}(\RR^2-\{0\})\xra[] 0
 \end{align*}
 
 is exact, i.e., $\partial^*$ is an isomorphism and $H*q(\RR^2-\{0\}) = 0$ for $q>0$ according 
@@ -183,8 +183,8 @@ to \eqref{eq:5-2}.
 If $p=0$, one gets the exact sequence
 \begin{align}\label{eq:5-3}
 \begin{aligned}
-  H^{-1}(U_1\cap U_2)\lr{} H^0(\RR^2-\{0\}) \lr{I^0} H^0(U_1)\oplus H^0(U_2)\lr{J^0} \\
-  H^0(U_1\cap U_2)\lr{\partial^*} H^1(\RR^2-\{0\}) \lr{I^1}H^1(U_1)\oplus H^1(U_2)
+  H^{-1}(U_1\cap U_2)\xra[] H^0(\RR^2-\{0\}) \xra[I^0] H^0(U_1)\oplus H^0(U_2)\xra[J^0] \\
+  H^0(U_1\cap U_2)\xra[\partial^*] H^1(\RR^2-\{0\}) \xra[I^1]H^1(U_1)\oplus H^1(U_2)
 \end{aligned}
 \end{align}
 
@@ -193,11 +193,11 @@ injective. Since $H^{-1}(U_\nu) = 0$, $\partial^*$ is surjective, and the sequen
 the exact sequence
 
 \begin{align*}
-  0\lr{} H^0(\RR^2-\{0\})\lr{I^0} H^0(U_1)
+  0\xra[] H^0(\RR^2-\{0\})\xra[I^0] H^0(U_1)
   \hspace*{-1em}\overset{\substack{\displaystyle\RR\otimes\RR\\\big|\!\big|}}{\oplus}\hspace*{-1em} 
-  H^0(U_2)\lr{J^0} 
+  H^0(U_2)\xra[J^0] 
   \overset{\substack{\displaystyle\RR\otimes\RR\\\big|\!\big|}}{H^0(U_1\cap U_2)}
-  \lr{\partial^*}H^1(\RR^2-\{0\})\lr{} 0
+  \xra[\partial^*]H^1(\RR^2-\{0\})\xra[] 0
 \end{align*}
 
 However, $\RR^2-\{0\}$ is connected. Hence $H^0(\RR^2-\{0\}) \cong \RR$, and since $I^0$ is 
@@ -239,7 +239,7 @@ follows from the Poincar\'e lemma. Assume the assertion is proved for $r - 1$ an
 let $V = U_1\cup\cdots\cup U_{r-1}$, such that $U = V\cup U_r$. From Theorem \ref{theorem:5-2} we have 
 the exact sequence
 \begin{align*}
-  H^{p-1}(V\cup U_r) \lr{\partial^*} H^p(U) \lr{I^*} H^p(V)\oplus H^p(U_r)
+  H^{p-1}(V\cup U_r) \xra[\partial^*] H^p(U) \xra[I^*] H^p(V)\oplus H^p(U_r)
 \end{align*}
 
 which by Lemma \ref{lemma:4-1} yields

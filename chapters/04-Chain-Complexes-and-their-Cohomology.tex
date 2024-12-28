@@ -5,7 +5,7 @@ results will be applied later to de Rham cohomology in Chapters 5 and 6.
 
 A sequence of vector spaces and linear maps
 \begin{align}\label{eq:4-1}
-  A \lr{f} B \lr{g} C
+  A \xra[f] B \xra[g] C
 \end{align}
 
 is said to be \Index{exact}\index{sequence!exact} when $\im f = \ker g$, where as above
@@ -14,10 +14,10 @@ is said to be \Index{exact}\index{sequence!exact} when $\im f = \ker g$, where a
   \im f  & = \{f(a) | a\in A\}\qquad \text{the image of } f
 \end{align*}
 
-Note that $A\lr{f}B\lr{}0$ is exact precisely when $f$ is surjective and that $0\lr{}B\lr{g}C$ is exact
+Note that $A\xra[f]B\xra[]0$ is exact precisely when $f$ is surjective and that $0\xra[]B\xra[g]C$ is exact
 precisely when $g$ is injective. A sequence $A^* = \{A^i, \dd^i\}$,
 \begin{align}\label{eq:4-2}
-  \cdots \lr{} A^{i-1}\lr{\dd^{i-1}} A^i \lr{\dd^i} A^{i+1} \lr{\dd^{i+1}} A^{i+2}\lr{}\cdots
+  \cdots \xra[] A^{i-1}\xra[\dd^{i-1}] A^i \xra[\dd^i] A^{i+1} \xra[\dd^{i+1}] A^{i+2}\xra[]\cdots
 \end{align}
 
 of vector spaces and linear maps is called a \Index{chain complex} provided $\dd^{i+1}\circ\dd^i = 0$
@@ -28,7 +28,7 @@ for all $i$. It is exact if
 
 for all $i$. An exact sequence of the form
 \begin{align}\label{eq:4-3}
-  0\lr{}A\lr{f}B\lr{g}C\lr{}0
+  0\xra[]A\xra[f]B\xra[g]C\xra[]0
 \end{align}
 
 is called \Index{short exact}\index{sequence!short exact}. This is equivalent to requiring that
@@ -43,18 +43,18 @@ The \Index{cokernel} of a linear map $f:A\to B$ is
 
 For a short exact sequence, $g$ induces an isomorphism
 \begin{align*}
-  g:\cok(f) \lr{\cong} C.
+  g:\cok(f) \xra[\cong] C.
 \end{align*}
 
 Every (long) exact sequence, as in \eqref{eq:4-2}, induces short \Index{exact sequences} (which can
 be used to calculate $A^i$)
 \begin{align*}
-  0\lr{} \im\dd^{i-1} \lr{} \im\dd^i \lr{} 0
+  0\xra[] \im\dd^{i-1} \xra[] \im\dd^i \xra[] 0
 \end{align*}
 
 Furthennore the isomorphisms
 \begin{align*}
-  A^{i-1}/\im\dd^{i-1} {\cong} A^{i-1}/\ker\dd^{i-1} \lr[\cong]{\dd^{i-1}} \im\dd^{i-1}
+  A^{i-1}/\im\dd^{i-1} {\cong} A^{i-1}/\ker\dd^{i-1} \xra[\cong]{\dd^{i-1}} \im\dd^{i-1}
 \end{align*}
 
 are frequently applied in concrete calculations.
@@ -73,7 +73,7 @@ basis of $A\oplus B$. In particular
 \end{align*}
 
 \begin{lemma}\label{lemma:4-1}
-  Suppose $0\lr{}A\lr{f}B\lr{g}C\lr{}0$ is a short exact sequence ofvector
+  Suppose $0\xra[]A\xra[f]B\xra[g]C\xra[]0$ is a short exact sequence ofvector
   spaces. Then $B$ is finite-dimensional if both $A$ and $C$ are, and $B\cong A\oplus C$.
 \end{lemma}
 
@@ -91,7 +91,7 @@ basis of $A\oplus B$. In particular
 \end{proof}
 
 \begin{definition}\label{def:4-2}
-  For a chain complex $A^* = \{\cdots\lr{} A^{p-1}\lr{\dd^{p-1}} A^p\lr{\dd^p} A^{p+1}\lr{}\cdots\}$, we define
+  For a chain complex $A^* = \{\cdots\xra[] A^{p-1}\xra[\dd^{p-1}] A^p\xra[\dd^p] A^{p+1}\xra[]\cdots\}$, we define
   the $p$-th cohomology vector space to be
   \begin{align*}
     H^p(A^*) = \ker\dd^p/\im\dd^{p-1}.
@@ -116,7 +116,7 @@ basis of $A\oplus B$. In particular
 \begin{lemma}\label{lemma:4-3}
   A chain map $f:A^*\to B^*$ induces a linear map
   \begin{align*}
-    f^* = H^*(f): H^p(A^*)\lr{} H^p(B^*), \text{ for all } p
+    f^* = H^*(f): H^p(A^*)\xra[] H^p(B^*), \text{ for all } p
   \end{align*}
 \end{lemma}
 
@@ -184,16 +184,16 @@ directions. We give a few examples:
 
 A short exact sequence of chain complexes
 \begin{align*}
-  0\lr{} A^*\lr{f} B^*\lr{g} C^*\lr{} 0
+  0\xra[] A^*\xra[f] B^*\xra[g] C^*\xra[] 0
 \end{align*}
 
-consists of chain maps $f$ and $g$ such that $0\lr{}A^p\lr{f}B^p\lr{g}C^p\lr{}0$ is exact
+consists of chain maps $f$ and $g$ such that $0\xra[]A^p\xra[f]B^p\xra[g]C^p\xra[]0$ is exact
 for every $p$.
 
 \begin{lemma}\label{lemma:4-4}
   For a short exact sequence of chain complexes the sequence
   \begin{align*}
-    H^p(A^*)\lr{f^*} H^p(B^*)\lr{g^*} H^p(C^*)
+    H^p(A^*)\xra[f^*] H^p(B^*)\xra[g^*] H^p(C^*)
   \end{align*}
 
   is exact.
@@ -226,7 +226,7 @@ a cycle. We shall measure when this is the case by introducing.
 
 
 \begin{definition}\label{def:4-5}
-  For a short exact sequence of chain complexes $0\lr{}A^*\lr{f}B^*\lr{g}C^*\lr{}0$, we define
+  For a short exact sequence of chain complexes $0\xra[]A^*\xra[f]B^*\xra[g]C^*\xra[]0$, we define
   \begin{align*}
     \partial^*: H^p(C^*) \to H^{p+1}(A^*)
   \end{align*}
@@ -261,7 +261,7 @@ sequence in a diagram:
 
 The slanted arrow indicates the definition of $\partial^*$. We shall now prove the necessary
 assertions which, when combined, make $\partial^*$ well-defined. Namely:
-\begin{enumerate}[label=(\roman*)]
+\begin{enumerate}[(i)]
   \item If $g^p(b) = c$  and $\dd^p_C(c) = 0$, then $\dd^p_B(b) \in f^{p+1}$.
   \item If $f^{p+1}(a) = \dd^p_B(b)$, then $\dd^{p+1}_A(a) = 0$.
   \item If $g^p(b_1)  g^p(b) = c$ and $f^{p+1}(a_i) = \dd^p_B(b_i)$, then $[a_1]=[a_2] \in H^{p+1}(A^*)$.
@@ -292,7 +292,7 @@ One can easily verify that $\partial^*:\RR\to\RR$ is an isomorphism.
 
 
 \begin{lemma}\label{lemma:4-7}
-  The sequence $H^p(B^*)\lr{g^*} H^p(C^*)\lr{\partial^*}H^{p+1}(A^*)$ is exact.
+  The sequence $H^p(B^*)\xra[g^*] H^p(C^*)\xra[\partial^*]H^{p+1}(A^*)$ is exact.
 \end{lemma}
 
 \begin{proof}
@@ -307,7 +307,7 @@ One can easily verify that $\partial^*:\RR\to\RR$ is an isomorphism.
 
 
 \begin{lemma}\label{lemma:4-8}
-  The sequence $H^p(C^*)\lr{\partial^*} H^{p+1}(A^*)\lr{f^*} H^{p+1}(B^*)$ is exact.
+  The sequence $H^p(C^*)\xra[\partial^*] H^{p+1}(A^*)\xra[f^*] H^{p+1}(B^*)$ is exact.
 \end{lemma}
 
 \begin{proof}
@@ -319,9 +319,9 @@ We can sum up Lemmas \ref{lemma:4-4}, \ref{lemma:4-7} and \ref{lemma:4-8} in the
 
 
 \begin{theorem}[Long exact homology sequence]\label{theorem:4-9}
-Let $0\lr{}A^*\lr{f}B^*\lr{g}C^*\lr{}0$ be a short exact sequence of chain complexes. Then the sequence
+Let $0\xra[]A^*\xra[f]B^*\xra[g]C^*\xra[]0$ be a short exact sequence of chain complexes. Then the sequence
 \begin{align*}
-  \cdots\lr{}H^p(A^*)\lr{f^*}H^p(B^*)\lr{g^*}H^p(C^*)\lr{\partial^*}H^{p+1}(A^*)\lr{f^*}H^{p+1}(B^*)\lr{} \cdots
+  \cdots\xra[]H^p(A^*)\xra[f^*]H^p(B^*)\xra[g^*]H^p(C^*)\xra[\partial^*]H^{p+1}(A^*)\xra[f^*]H^{p+1}(B^*)\xra[] \cdots
 \end{align*}
 
 is exact.
@@ -332,7 +332,7 @@ is exact.
   Two chain maps $f, g:A^*\to B^*$ are said to be \Index{chain homotopic} if there exists a linear map
 $s:A^p\to B^{p-1}$ satisfying
 \begin{align*}
-  \dd_{B}s + s\dd_A = f - g: A^p\lr{}B^p
+  \dd_{B}s + s\dd_A = f - g: A^p\xra[]B^p
 \end{align*}
 
 for every $p$.
@@ -353,7 +353,7 @@ The name \Index{chain homotopy} will be explained in Chapter 6.
 \begin{lemma}\label{lemma:4-11}
   For two chain-homotopic chain maps $f,g:A^*\to B^*$ we have that
   \begin{align*}
-    f^* = g^*: H^p(A^*)\lr{}H^p(B^*).
+    f^* = g^*: H^p(A^*)\xra[]H^p(B^*).
   \end{align*}
 \end{lemma}
 

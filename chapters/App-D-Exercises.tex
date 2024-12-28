@@ -1,1 +1,76 @@
 \chapter{Exercises}
+\newcounter{exercise}
+\setcounter{exercise}{1}
+\newcommand{\newchap}{\stepcounter{exercise}\setcounter{enumi}{0}}
+
+
+\begin{enumerate}[\theexercise.1.]
+  \item Perform the calculations of Theorem \ref{theorem:1-6}.
+  \item Let $W\subseteq\RR^3$ be the open set 
+    \begin{align*}
+      W = \{(x_1, x_2, x_3)\in\RR^3\big| \text{ either } x_3\neq 0 \text{ or } x_1^2 + x_2^2<1\}.
+    \end{align*}
+    Prove the existence and uniqueness of a function $f\in C^\infty(W, \RR)$ such that
+    $\grad(F)$ is the vector field considered in Example \ref{example:1-8} and $F(0)= 0$.
+    Find a simple expression for $F$ valid when $x_1^2 + x_2^2 < 1$. ( Hint: First note that $F$ is 
+    constant on the open disc in the $x_l, x_2$-plane bounded by the unit circle $S$. Then integrate 
+    along lines parallel to the $x_3$-axis.) \newchap
+  \item Prov the formula in Remark \ref{remark:2-10}.
+  \item Find an $\omega\in\alt^2\RR^4$ such that $\omega\wedge\omega\neq 0$.
+  \item Show that there exist isomorphisms
+    \begin{align*}
+      \RR^3 \xra[i] \alt^1\RR^3, && \RR^3 \xra[j]\alt^2\RR^3 
+    \end{align*}
+    given by 
+    \begin{align*}
+      i(v)(w) = \langle v, w \rangle, && j(v)(w_1, w_2) = \det(v, w_1, w_2)
+    \end{align*}
+    where $\langle , \rangle$ is the usual inner product. Show that for $v_1, v_2\in\RR^2$, we have 
+    \begin{align*}
+      i(v_1)\wedge i(v_2) = j(v_1\times v_2).
+    \end{align*}
+  \item ... \setcounter{exercise}{7}\setcounter{enumi}{0}
+  \item Show that $\RR^n$ does not contain a subset homeomorphic to $D^m$ when $m > n$.
+  \item \label{exercise:7-2} Let $\Sigma\subseteq\RR^n$ be homeomorphic 
+    to $S^k\; (1\le k\le n-2)$. Show that 
+    \begin{align*}
+      H^p(\RR^n-\Sigma) \simee \left\{\begin{aligned}
+        & \RR && \text{ for } p=0, n-k-1, n-1 \\
+        & 0 && \text{ otherwise }.
+      \end{aligned}\right.
+    \end{align*}
+  \item Show that there is no continuous map $g:D^n\to S^{n-1}$ with $g|_{S^{n-1}}\sime \id|_{S^{n-1}}$.
+  \item ... \setcounter{exercise}{9}\setcounter{enumi}{0}
+  \item \label{exercise:9-1} Let $M\sseq\RR^l$ be a differentiable submanifold and assume the points 
+    $p\in \RR^l$ and $p_0\in M$ are such that $\|p-p_0\|\le \|p-q\|$ for all $q\in M$. Show that 
+    $p-p_0\in T_{p_0}M^\perp$.
+  \item A smooth map $\varphi:M^m\to N^n$ between smooth manifolds is called immersive at $p\in M$, when 
+    \begin{align*}
+      D_p\varphi:T_pM\to T_{q}N, \qquad q\in\varphi(p)
+    \end{align*}
+    is injective. Show that there exists smooth charts $(U, h)$ in $M$ with $p\in U$, $h(p)=0$, and 
+    $(V, k)$ in $N$ with $q\in V$, $k(q)=0$ such that 
+    \begin{align*}
+      k\circ\varphi\circ h^{-1}(x_1, \cdots, x_m) = (x_1, \cdots, x_m, 0, \cdots, 0).
+    \end{align*}
+    in a neighborhood of 0.\par
+    (Hint: Reduce the problem to the case where $\varphi:W\to\RR^n$ is on an open neighborhood $W$ in $\RR^n$
+    of 0 with $\varphi(0) = 0$, and 
+    \begin{align*}
+      \left(\frac{\partial \varphi_i(0)}{\partial x_j}\right)_{1\le i,j\le m}
+    \end{align*}
+    is an invertiable $m\times m$ matrix. Apply the inverse function theorem to 
+    \begin{align*}
+      F:W\times \RR^{n-m}\to&\RR^n;\\
+      F(x_1, \cdots, x_n) 
+        = (
+            \varphi_1(x_1, \cdots, x_m), 
+            \cdots, 
+            & \varphi_m(x_1, \cdots, x_m), 
+            x_{m+1}, 
+            \cdots, 
+            x_n
+            ).)
+    \end{align*}
+  \item ... 
+\end{enumerate}

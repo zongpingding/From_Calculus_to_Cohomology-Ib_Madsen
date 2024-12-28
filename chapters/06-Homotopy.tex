@@ -72,7 +72,7 @@ In particular this shows that a star-shaped set in $\RR^m$ is contractible.
 
 \begin{lemma}\label{lemma:6-6}
 If $U, V$ are open sets in Euclidean spaces, then 
-\begin{enumerate}[label=(\roman*)]
+\begin{enumerate}[(i)]
   \item Every continuous map $f:U\to V$ is homotopic to a smooth map.
   \item If two smooth maps $f_\nu:U\to V, \nu=0, 1$ are homotopic, then there exists a smooth map $F:U\times\RR\to U$ with 
     $F(x, \nu) = f_\nu(x)$ for $\nu=0, 1$ and all $x\in U$. ($F$  is called a \Index{smooth homotopy} from $f_0$ to $f_1$).
@@ -135,7 +135,7 @@ such that
   (\dd\hat{S}_p + \hat{S}_{p+1}\dd)(\omega) = \phi^*_1(\omega) - \phi^*_0(\omega).
 \end{align}
 
-Consider the composition $U\lr{\phi_\nu}U\times\RR\lr{F} V$, where $F$ is a smooth homotopy between 
+Consider the composition $U\xra[\phi_\nu]U\times\RR\xra[F] V$, where $F$ is a smooth homotopy between 
 $f$ and $g$. The we have that $F\circ\phi_0 = f$ and $F\circ\phi_1 = g$. We define 
 \begin{align*}
   S_p:\Omega^p(V)\to \Omega^{p-1}(U)
@@ -166,7 +166,7 @@ be setting $\phi^* = f^*$, where $f:U\to V$ is a smooth map homotopy to $\phi$.
 
 \begin{theorem}\label{theorem:6-8}
 For $p\in\B{Z}$ and open sets $U, V, W$ in Euclidean spaces we have 
-\begin{enumerate}[label=(\roman*)]
+\begin{enumerate}[(i)]
   \item If $\phi_0, \phi_1:U\to V$ are homotopic continuous maps, then 
     \begin{align*}
       \phi_0^* = \phi_1^*: H^p(V)\to H^p(U).
@@ -238,7 +238,7 @@ and thus $H^p(U) = 0$.
 In the proposition below, $\RR^n$ is identified with the subspace $\RR^n\times\{0\}$ of $\RR^{n+1}$
 and $\RR\cdot 1$ denotes the 1-dimensional subspace consisting of constant functions.
 
-\begin{proposition}\label{proposition:6-11}
+\begin{proposition}\label{prop:6-11}
   For an arbitrary closed subset $A$ of $\RR$ with $A\neq\RR^n$ we have isomorphisms
   \begin{align*}
     H^p(\RR^n - A) &\cong H^p(\RR^n - A)\qquad\text{for} p\ge 1 \\
@@ -274,12 +274,12 @@ is an isomorphism for every $p$. Theorem \ref{theorem:5-2} gives isomorphism
   \partial^*: H^p(U_1\cap U_2)\to H^{p+1}(\RR^{n+1} - A)
 \end{align*}
 
-for $p\ge 1$. By composition with $\R{pr}^*$ one obtains the first part of Proposition \ref{proposition:6-11}.
+for $p\ge 1$. By composition with $\R{pr}^*$ one obtains the first part of Proposition \ref{prop:6-11}.
 
 Consider the exact suquence
 \begin{align*}
-  0\lr{}H^0(\RR^{n+1}-A)\lr{I^*}H^0(U_1)\oplus H^0(U_2)\lr{J^*}H^0(U_1\cap U_2)\lr{\partial^*} 
-  H^1(\RR^{n+1}-A)\lr{}0.
+  0\xra[]H^0(\RR^{n+1}-A)\xra[I^*]H^0(U_1)\oplus H^0(U_2)\xra[J^*]H^0(U_1\cap U_2)\xra[\partial^*] 
+  H^1(\RR^{n+1}-A)\xra[]0.
 \end{align*}
 
 An element of $H^0(U_1)\oplus H^0(U_2)$ is given by a pair of constant functions on $U_1$ and $U_2$ with values $a_1$ and $a_2$. 
@@ -300,7 +300,7 @@ We also have that $\dim(\im(I^*)) = \dim(\ker(J^*)) = 1$, so $H^0(\RR^{n+1}-A) =
 
 
 \begin{addendum}\label{addendum:6-12}
-  In the situation of Proposition \ref{proposition:6-11} we have a \Index{diffeomorphism}
+  In the situation of Proposition \ref{prop:6-11} we have a \Index{diffeomorphism}
   \begin{align*}
     R:\RR^{n+1}-A \to \RR^{n+1}-A
   \end{align*}
@@ -330,7 +330,7 @@ which the horizontal diffeomorphisms are restrictions of $R$:
   \end{tikzcd}
 \end{center}
 
-In the proof of Proposition \ref{proposition:6-11} we saw that
+In the proof of Proposition \ref{prop:6-11} we saw that
 \begin{align*}
   \partial^*:H^p(U_1\cap U_2)\to H^{p+1}(\RR^{n+1}-A)
 \end{align*}
@@ -356,7 +356,7 @@ These equations and the definition of $\partial^*$ give $\partial^*(-[R^*_0\omeg
 
 For the projection $\R{pr}:U_1\times U_2\to\RR^n-A$ we have that $\R{pr}\circ R_0 = \R{pr}$ and therefore 
 \begin{align*}
-  H^p(\RR^n-A)\lr{\R{pr}^*}H^p(U_1\cap U_2)\lr{R^*_0} H^p(U_1\cap U_2)
+  H^p(\RR^n-A)\xra[\R{pr}^*]H^p(U_1\cap U_2)\xra[R^*_0] H^p(U_1\cap U_2)
 \end{align*}
 
 is identical with $\R{pr}^*$. Since $\R{pr}^*$ is an isomorphism, $R^*_0$ is forced to be the identity
@@ -375,7 +375,7 @@ map on $H^p(U_1\cap U_2)$, and the left-hand side in \eqref{eq:6-2} is $\partial
 
 \begin{proof}
   The case $n = 2$ was shown in Example \ref{example:5-4}. The general case follows
-from induction on $n$, via Proposition \ref{proposition:6-11}.
+from induction on $n$, via Proposition \ref{prop:6-11}.
 \end{proof}
 
 
